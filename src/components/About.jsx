@@ -1,26 +1,27 @@
-import { useRef, useEffect, useState } from 'react';
-import { motion, useInView, useSpring, useMotionValue, useTransform } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-
-const CountUp = ({ to, suffix = '', duration = 1.5 }) => {
+const CountUp = ({ to, suffix = '', duration = 2 }) => {
     const ref = useRef(null);
-    const inView = useInView(ref, { once: true });
+    const inView = useInView(ref, { once: true, margin: "-10px" });
     const motionValue = useMotionValue(0);
-    const springValue = useSpring(motionValue, { duration: duration * 1000 });
-    const displayValue = useTransform(springValue, (latest) => {
-        if (suffix === '%') return Math.floor(latest) + suffix;
-        if (suffix === 'X') return Math.floor(latest) + suffix;
-        if (suffix === '+') return Math.floor(latest) + suffix;
-        return Math.floor(latest); // Fallback
-    });
+    const [displayValue, setDisplayValue] = useState(0);
 
     useEffect(() => {
         if (inView) {
-            motionValue.set(to);
+            const controls = animate(motionValue, to, {
+                duration: duration,
+                ease: "easeOut",
+                onUpdate: (value) => {
+                    setDisplayValue(Math.floor(value));
+                }
+            });
+            return () => controls.stop();
         }
-    }, [inView, motionValue, to]);
+    }, [inView, motionValue, to, duration]);
 
-    return <motion.span ref={ref}>{displayValue}</motion.span>;
+    return (
+        <span ref={ref} className="tabular-nums">
+            {displayValue}{suffix}
+        </span>
+    );
 };
 
 const About = () => {
