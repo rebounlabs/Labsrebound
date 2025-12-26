@@ -1,3 +1,7 @@
+import { useRef, useEffect, useState } from 'react';
+import { motion, useInView, useMotionValue, animate } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+
 const CountUp = ({ to, suffix = '', duration = 2 }) => {
     const ref = useRef(null);
     const inView = useInView(ref, { once: true, margin: "-10px" });
