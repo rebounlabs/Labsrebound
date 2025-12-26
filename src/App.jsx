@@ -8,6 +8,7 @@ import Services from './components/Services';
 import Process from './components/Process';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import WhatsAppWidget from './components/WhatsAppWidget';
 import Loader from './components/Loader';
 import './styles/App.css';
 
@@ -38,6 +39,7 @@ function App() {
             <Process />
             <Contact />
             <Footer />
+            <WhatsAppWidget />
           </main>
         )}
       </AnimatePresence>
