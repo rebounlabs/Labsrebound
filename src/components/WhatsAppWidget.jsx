@@ -72,7 +72,7 @@ const WhatsAppWidget = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={toggleOpen}
-                        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+                        className="fixed inset-0 bg-black/80 z-40"
                     />
                 )}
             </AnimatePresence>
@@ -87,15 +87,15 @@ const WhatsAppWidget = () => {
                         exit="exit"
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
                         className={`
-                            fixed bg-slate-900 border-slate-800 shadow-2xl flex flex-col overflow-hidden
+                            fixed bg-slate-950 border-slate-800 shadow-2xl flex flex-col overflow-hidden
                             ${isMobile
-                                ? "bottom-0 left-0 right-0 h-[85vh] rounded-t-2xl border-t z-50 w-full"
+                                ? "bottom-0 left-0 right-0 h-[80vh] rounded-t-2xl border-t z-50 w-full"
                                 : "bottom-24 right-6 w-96 h-[600px] max-h-[80vh] rounded-2xl border z-50 mb-4"
                             }
                         `}
                     >
                         {/* Sticky Header */}
-                        <div className="bg-slate-900 p-4 border-b border-slate-800 flex justify-between items-center sticky top-0 z-10 shrink-0">
+                        <div className="bg-slate-950 p-4 border-b border-slate-800 flex justify-between items-center sticky top-0 z-10 shrink-0 select-none">
                             <div className="flex items-center gap-3">
                                 <div className="relative">
                                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-white shadow-lg shadow-green-500/20">
@@ -118,13 +118,13 @@ const WhatsAppWidget = () => {
                         </div>
 
                         {/* Scrollable Body */}
-                        <div className="flex-1 overflow-y-auto custom-scrollbar p-5 bg-slate-900">
+                        <div className="flex-1 overflow-y-auto custom-scrollbar p-5 bg-slate-950">
                             {/* Welcome Message Bubble */}
                             <div className="flex gap-3 mb-8">
                                 <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 shrink-0 mt-auto">
                                     <MessageCircle size={16} />
                                 </div>
-                                <div className="bg-slate-800 rounded-2xl rounded-bl-none p-4 text-[15px] text-slate-200 shadow-md border border-slate-700/50 max-w-[85%] leading-relaxed">
+                                <div className="bg-slate-900 rounded-2xl rounded-bl-none p-4 text-[15px] text-slate-200 shadow-md border border-slate-800 max-w-[85%] leading-relaxed">
                                     <p>Hello! How can we help you today? 👋</p>
                                 </div>
                             </div>
@@ -134,10 +134,10 @@ const WhatsAppWidget = () => {
                                 <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 px-1">Frequently Asked Questions</h4>
                                 <div className="space-y-3">
                                     {faqs.map((faq, index) => (
-                                        <div key={index} className="rounded-xl bg-slate-800 border border-slate-700/50 overflow-hidden active:scale-[0.99] transition-transform">
+                                        <div key={index} className="rounded-xl bg-slate-900 border border-slate-800 overflow-hidden active:scale-[0.99] transition-transform">
                                             <button
                                                 onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                                                className="w-full text-left p-4 text-[15px] font-medium text-slate-200 flex justify-between items-center hover:bg-slate-700/50 transition-colors"
+                                                className="w-full text-left p-4 text-[15px] font-medium text-slate-200 flex justify-between items-center hover:bg-slate-800 transition-colors"
                                             >
                                                 {faq.question}
                                                 <ChevronDown
@@ -151,7 +151,7 @@ const WhatsAppWidget = () => {
                                                         initial={{ height: 0, opacity: 0 }}
                                                         animate={{ height: 'auto', opacity: 1 }}
                                                         exit={{ height: 0, opacity: 0 }}
-                                                        className="px-4 pb-4 text-sm text-slate-400 leading-relaxed border-t border-slate-700/50"
+                                                        className="px-4 pb-4 text-sm text-slate-400 leading-relaxed border-t border-slate-800"
                                                     >
                                                         {faq.answer}
                                                     </motion.div>
@@ -167,7 +167,7 @@ const WhatsAppWidget = () => {
                         </div>
 
                         {/* Sticky Footer CTA */}
-                        <div className="p-4 bg-slate-900 border-t border-slate-800 shrink-0 sticky bottom-0 z-20 pb-safe">
+                        <div className="p-4 bg-slate-950 border-t border-slate-800 shrink-0 sticky bottom-0 z-20 pb-safe safe-area-bottom">
                             <motion.a
                                 href={`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(PREFILLED_MESSAGE)}`}
                                 target="_blank"
