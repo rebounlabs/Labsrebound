@@ -30,7 +30,7 @@ function App() {
         {loading ? (
           <Loader key="loader" />
         ) : (
-          <>
+          <main>
             <Navbar />
             <Hero />
             <WhyUs />
@@ -40,7 +40,7 @@ function App() {
             <Contact />
             <Footer />
             <WhatsAppWidget />
-          </>
+          </main>
         )}
       </AnimatePresence>
     </div>

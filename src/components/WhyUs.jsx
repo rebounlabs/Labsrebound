@@ -12,6 +12,7 @@ const WhyUs = () => {
     return (
         <section className="py-20 bg-white border-b border-slate-100">
             <div className="container mx-auto px-6">
+                <h2 className="sr-only">Why Choose Rebound Labs</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     <motion.div
                         initial="hidden"
