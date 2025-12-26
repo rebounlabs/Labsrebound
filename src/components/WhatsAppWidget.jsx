@@ -31,7 +31,7 @@ const WhatsAppWidget = () => {
     ];
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-none font-sans">
+        <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col items-end pointer-events-none font-sans">
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -39,7 +39,7 @@ const WhatsAppWidget = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.95 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="bg-slate-900 rounded-2xl shadow-2xl shadow-black/20 border border-slate-800 w-[340px] md:w-96 pointer-events-auto overflow-hidden flex flex-col mb-4"
+                        className="bg-slate-900 rounded-2xl shadow-2xl shadow-black/20 border border-slate-800 w-[calc(100vw-2rem)] sm:w-80 md:w-96 pointer-events-auto overflow-hidden flex flex-col mb-4 origin-bottom-right"
                     >
                         {/* Header */}
                         <div className="bg-slate-800/50 p-5 border-b border-slate-700/50 flex justify-between items-center backdrop-blur-sm">
