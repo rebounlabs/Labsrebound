@@ -65,14 +65,15 @@ const Hero = () => {
                             </motion.p>
 
                             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-12">
-                                <motion.button
+                                <motion.a
+                                    href="mailto:labsrebound@gmail.com?subject=Interest%20in%20Working%20Together&body=Hi%20ReboundLabs%20Team,%0D%0A%0D%0AI'm%20interested%20in%20starting%20a%20project%20with%20you.%20Here%20are%20some%20details:"
                                     whileHover={{ scale: 1.05, y: -2 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-accent/20 transition-all flex items-center justify-center gap-2 group"
+                                    className="bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-accent/20 transition-all flex items-center justify-center gap-2 group cursor-pointer"
                                 >
                                     Start Your Project
                                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                                </motion.button>
+                                </motion.a>
                             </motion.div>
 
                             {/* Trust Signals */}
