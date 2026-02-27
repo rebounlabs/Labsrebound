@@ -25,28 +25,45 @@ const reasons = [
     }
 ];
 
+const textVariants = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+};
+
 const WhyUs = () => {
     return (
         <section className="py-24 md:py-40 bg-bg-dark text-white relative overflow-hidden border-t border-white/5 px-4 md:px-0">
             <div className="container-custom relative z-10">
                 <div className="flex flex-col md:flex-row items-center justify-between mb-16 md:mb-24 text-center md:text-left gap-10 md:gap-12">
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="max-w-2xl"
-                    >
-                        <span className="text-white/40 text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] mb-6 block">Why Partner With Us</span>
-                        <h2 className="text-5xl md:text-7xl font-heading font-black leading-tight md:leading-[1] tracking-tighter">
+                    <div className="max-w-2xl">
+                        <motion.span
+                            variants={textVariants}
+                            initial="initial"
+                            whileInView="whileInView"
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ duration: 0.6 }}
+                            className="text-white/40 text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] mb-6 block"
+                        >
+                            Why Partner With Us
+                        </motion.span>
+                        <motion.h2
+                            variants={textVariants}
+                            initial="initial"
+                            whileInView="whileInView"
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                            className="text-5xl md:text-7xl font-heading font-black leading-tight md:leading-[1] tracking-tighter"
+                        >
                             Engineering <br />
                             <span className="font-serif-italic text-growaz-yellow">for the Future.</span>
-                        </h2>
-                    </motion.div>
+                        </motion.h2>
+                    </div>
 
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
                         className="w-full md:w-auto"
                     >
                         <div className="flex items-center justify-center md:justify-start gap-4 bg-white/5 border border-white/10 px-6 py-4 md:px-8 md:py-4 rounded-full backdrop-blur-md shadow-xl shadow-black/20">
@@ -62,8 +79,8 @@ const WhyUs = () => {
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ delay: index * 0.1, duration: 0.8 }}
                             className="relative p-6 md:p-12 rounded-[32px] md:rounded-[52px] bg-white/[0.01] border border-white/5 hover:border-white/10 hover:bg-white/[0.03] transition-all duration-500 group overflow-hidden"
                         >
                             {/* Card Glow */}
@@ -73,10 +90,26 @@ const WhyUs = () => {
                                 {reason.icon}
                             </div>
 
-                            <h3 className="text-xl md:text-2xl font-heading font-black mb-4 md:mb-6 tracking-tight group-hover:text-white transition-colors">{reason.title}</h3>
-                            <p className="text-white/40 text-[13px] md:text-sm leading-relaxed font-medium">
+                            <motion.h3
+                                variants={textVariants}
+                                initial="initial"
+                                whileInView="whileInView"
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 + 0.2, duration: 0.6 }}
+                                className="text-xl md:text-2xl font-heading font-black mb-4 md:mb-6 tracking-tight group-hover:text-white transition-colors"
+                            >
+                                {reason.title}
+                            </motion.h3>
+                            <motion.p
+                                variants={textVariants}
+                                initial="initial"
+                                whileInView="whileInView"
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 + 0.3, duration: 0.6 }}
+                                className="text-white/40 text-[13px] md:text-sm leading-relaxed font-medium"
+                            >
                                 {reason.description}
-                            </p>
+                            </motion.p>
 
                             <div className="mt-10 md:mt-12 w-8 h-1 bg-white/5 rounded-full group-hover:w-16 group-hover:bg-growaz-orange transition-all duration-500" />
                         </motion.div>
