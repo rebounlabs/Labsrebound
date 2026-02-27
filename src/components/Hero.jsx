@@ -54,7 +54,7 @@ const Hero = () => {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.5 }}
-                            className="absolute -right-2 md:-right-8 top-[60%] md:top-[65%] flex items-center gap-2 bg-growaz-orange px-4 py-2 md:px-6 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-white shadow-2xl shadow-growaz-orange/20 z-20"
+                            className="absolute -right-2 md:-right-8 top-[50%] md:top-[52%] flex items-center gap-2 bg-growaz-orange px-4 py-2 md:px-6 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-white shadow-2xl shadow-growaz-orange/20 z-20"
                         >
                             <div className="w-0 h-0 border-t-[4px] md:border-t-[6px] border-t-transparent border-r-[6px] md:border-r-[10px] border-r-growaz-orange border-b-[4px] md:border-b-[6px] border-b-transparent absolute -left-1.5 md:-left-2" />
                             Engineering
@@ -64,7 +64,7 @@ const Hero = () => {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.7 }}
-                            className="absolute -left-2 md:-left-8 top-[20%] md:top-[25%] flex items-center gap-2 bg-growaz-yellow px-4 py-2 md:px-6 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-black shadow-2xl shadow-growaz-yellow/20 z-20"
+                            className="absolute -left-2 md:-left-8 top-[30%] md:top-[32%] flex items-center gap-2 bg-growaz-yellow px-4 py-2 md:px-6 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-black shadow-2xl shadow-growaz-yellow/20 z-20"
                         >
                             Strategic
                             <div className="w-0 h-0 border-t-[4px] md:border-t-[6px] border-t-transparent border-l-[6px] md:border-l-[10px] border-l-growaz-yellow border-b-[4px] md:border-b-[6px] border-b-transparent absolute -right-1.5 md:-right-2" />
