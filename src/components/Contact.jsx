@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Send, AlertCircle } from 'lucide-react';
+import { Mail, Send, Phone, Clock, Star, Plus } from 'lucide-react';
 import Toast from './Toast';
 
 const Contact = () => {
@@ -59,7 +59,10 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-16 md:py-20 bg-bg-primary relative overflow-hidden">
+        <section id="contact" className="py-40 bg-bg-dark text-white relative overflow-hidden border-t border-white/5">
+            {/* Background Decor */}
+            <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-growaz-orange/5 blur-[120px] rounded-full pointer-events-none" />
+
             <AnimatePresence>
                 {showToast && (
                     <Toast
@@ -70,145 +73,147 @@ const Contact = () => {
                 )}
             </AnimatePresence>
 
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-10 md:mb-14">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-4"
-                        >
-                            Ready to Start?
-                        </motion.h2>
-                        <p className="text-slate-500 text-lg">
-                            Tell us about your project, and we'll get back to you within 24 hours.
-                        </p>
-                    </div>
+            <div className="container-custom relative z-10">
+                <div className="grid lg:grid-cols-2 gap-16 md:gap-24 items-start">
+                    {/* Left Side: Content */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <span className="text-growaz-orange text-xs font-bold uppercase tracking-[0.4em] mb-6 block text-center md:text-left">Get in Touch</span>
+                        <h2 className="text-5xl md:text-8xl font-heading font-black leading-[0.95] md:leading-[0.9] tracking-tighter mb-10 md:mb-12 text-center md:text-left">
+                            Ready to <br />
+                            <span className="font-serif-italic opacity-80">build together?</span>
+                        </h2>
 
-                    <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-start">
-                        {/* Contact Info (Left - 2cols) */}
-                        <div className="md:col-span-2 space-y-6 md:space-y-8">
-                            <div>
-                                <h3 className="text-lg font-bold text-slate-800 mb-4">Contact Details</h3>
-                                <div className="space-y-4">
-                                    <a href="mailto:labsrebound@gmail.com" className="flex items-center gap-3 text-slate-600 hover:text-accent transition-colors group">
-                                        <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
-                                            <Mail size={18} />
-                                        </div>
-                                        <span>labsrebound@gmail.com</span>
-                                    </a>
-                                    <a href="tel:+918129829294" className="flex items-center gap-3 text-slate-600 hover:text-accent transition-colors group">
-                                        <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                                        </div>
-                                        <span>+91 81298 29294</span>
-                                    </a>
+                        <p className="text-white/40 text-sm md:text-lg leading-relaxed mb-12 md:mb-16 max-w-md font-medium text-center md:text-left mx-auto md:mx-0">
+                            Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.
+                        </p>
+
+                        <div className="space-y-8 md:space-y-10 mb-16 lg:mb-0">
+                            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 group text-center md:text-left">
+                                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-growaz-orange group-hover:bg-growaz-orange group-hover:text-white transition-all shadow-xl shadow-growaz-orange/10 shrink-0">
+                                    <Mail size={24} />
+                                </div>
+                                <div className="space-y-1">
+                                    <p className="text-white/20 text-[10px] font-bold uppercase tracking-widest">Email Us</p>
+                                    <a href="mailto:labsrebound@gmail.com" className="text-lg md:text-xl font-heading font-black hover:text-growaz-orange transition-colors break-all">labsrebound@gmail.com</a>
                                 </div>
                             </div>
 
-                            <div className="p-6 bg-blue-50/50 rounded-2xl border border-blue-100">
-                                <h4 className="font-semibold text-accent mb-2">Office Hours</h4>
-                                <p className="text-sm text-slate-600 mb-1">Monday - Saturday</p>
-                                <p className="text-sm text-slate-900 font-medium">9:00 AM - 6:00 PM IST</p>
+                            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 group text-center md:text-left">
+                                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-growaz-yellow group-hover:bg-growaz-yellow group-hover:text-black transition-all shadow-xl shadow-growaz-yellow/10 shrink-0">
+                                    <Phone size={24} />
+                                </div>
+                                <div className="space-y-1">
+                                    <p className="text-white/20 text-[10px] font-bold uppercase tracking-widest">Call Us</p>
+                                    <a href="tel:+918129829294" className="text-lg md:text-xl font-heading font-black hover:text-growaz-yellow transition-colors">+91 81298 29294</a>
+                                </div>
+                            </div>
+
+                            <div className="p-6 md:p-8 bg-white/[0.02] border border-white/5 rounded-[32px] md:rounded-[40px] flex flex-col md:flex-row items-center gap-4 md:gap-6 max-w-sm backdrop-blur-md mx-auto md:mx-0">
+                                <div className="w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-full flex items-center justify-center text-white/40">
+                                    <Clock size={18} md:size={20} />
+                                </div>
+                                <div className="text-center md:text-left">
+                                    <p className="text-white/60 text-xs md:text-sm font-bold">Mon - Sat, 9AM - 6PM</p>
+                                    <p className="text-white/20 text-[9px] md:text-xs font-medium uppercase tracking-widest mt-1">Available Internationally</p>
+                                </div>
                             </div>
                         </div>
+                    </motion.div>
 
-                        {/* Contact Form (Right - 3cols) */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="md:col-span-3 bg-white p-8 rounded-2xl shadow-2xl shadow-slate-200/60 border border-slate-100 relative"
-                        >
-                            <form
-                                className="space-y-6"
-                                onSubmit={handleSubmit}
-                            >
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div className="space-y-2">
-                                        <label htmlFor="name" className="text-sm font-semibold text-slate-900">Name</label>
+                    {/* Right Side: Form */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="relative"
+                    >
+                        {/* Box Decoration */}
+                        <div className="absolute -inset-4 bg-gradient-to-br from-growaz-orange/10 to-transparent blur-2xl rounded-[60px] opacity-50" />
+
+                        <div className="bg-white/[0.03] backdrop-blur-xl border border-white/5 p-8 md:p-14 rounded-[40px] md:rounded-[56px] relative shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
+                            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                                    <div className="space-y-3">
+                                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-2">Your Name</label>
                                         <input
-                                            id="name"
                                             type="text"
                                             name="name"
                                             value={formState.name}
                                             onChange={handleChange}
-                                            placeholder="John Doe"
                                             required
-                                            className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all hover:bg-slate-100"
+                                            placeholder="John Doe"
+                                            className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 text-white text-sm md:text-base placeholder-white/10 focus:outline-none focus:border-growaz-orange transition-all font-medium"
                                         />
                                     </div>
-                                    <div className="space-y-2">
-                                        <label htmlFor="email" className="text-sm font-semibold text-slate-900">Email</label>
+                                    <div className="space-y-3">
+                                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-2">Email Address</label>
                                         <input
-                                            id="email"
                                             type="email"
                                             name="email"
                                             value={formState.email}
                                             onChange={handleChange}
-                                            placeholder="john@example.com"
                                             required
-                                            className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all hover:bg-slate-100"
+                                            placeholder="john@example.com"
+                                            className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 text-white text-sm md:text-base placeholder-white/10 focus:outline-none focus:border-growaz-orange transition-all font-medium"
                                         />
                                     </div>
                                 </div>
 
-                                <div className="space-y-2">
-                                    <label htmlFor="service" className="text-sm font-semibold text-slate-900">Service</label>
-                                    <select
-                                        id="service"
-                                        name="service"
-                                        value={formState.service}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all hover:bg-slate-100 appearance-none"
-                                    >
-                                        <option value="Web Development">Web Development</option>
-                                        <option value="UI/UX Design">UI/UX Design</option>
-                                        <option value="Web Application">Web Application</option>
-                                        <option value="Other">Other</option>
-                                    </select>
+                                <div className="space-y-3">
+                                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-2">Select Service</label>
+                                    <div className="relative">
+                                        <select
+                                            name="service"
+                                            value={formState.service}
+                                            onChange={handleChange}
+                                            className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl px-5 md:px-6 py-3.5 md:py-4 text-white text-sm md:text-base focus:outline-none focus:border-growaz-orange transition-all font-medium appearance-none"
+                                        >
+                                            <option value="Web Development" className="bg-bg-dark">Web Development</option>
+                                            <option value="UI/UX Design" className="bg-bg-dark">UI/UX Design</option>
+                                            <option value="Enterprise Apps" className="bg-bg-dark">Enterprise Apps</option>
+                                            <option value="Other" className="bg-bg-dark">Other</option>
+                                        </select>
+                                        <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
+                                            <Plus size={18} md:size={20} />
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div className="space-y-2">
-                                    <label htmlFor="message" className="text-sm font-semibold text-slate-900">Message</label>
+                                <div className="space-y-3">
+                                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-2">Project Details</label>
                                     <textarea
-                                        id="message"
                                         name="message"
                                         value={formState.message}
                                         onChange={handleChange}
-                                        rows="4"
                                         required
-                                        placeholder="Tell us about your project..."
-                                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all hover:bg-slate-100 resize-none"
-                                    ></textarea>
+                                        rows="4" md:rows="5"
+                                        placeholder="Tell us about your goals..."
+                                        className="w-full bg-white/5 border border-white/5 rounded-2xl md:rounded-3xl px-5 md:px-6 py-3.5 md:py-4 text-white text-sm md:text-base placeholder-white/10 focus:outline-none focus:border-growaz-orange transition-all font-medium resize-none"
+                                    />
                                 </div>
 
                                 <motion.button
-                                    whileHover={{ scale: 1.02, boxShadow: "0 10px 30px -10px rgba(37, 99, 235, 0.4)" }}
+                                    whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    type="submit"
                                     disabled={status === 'submitting'}
-                                    className="w-full py-3.5 bg-gradient-to-r from-blue-600 to-violet-600 text-white font-bold rounded-full shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2 group hover:brightness-110 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                                    className="w-full bg-white text-black py-4 md:py-5 rounded-xl md:rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] md:text-xs flex items-center justify-center gap-3 group disabled:opacity-50"
                                 >
                                     {status === 'submitting' ? (
-                                        <span className="flex items-center gap-2">
-                                            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                            </svg>
-                                            Sending...
-                                        </span>
+                                        "Sending..."
                                     ) : (
                                         <>
-                                            <span>Send Message</span>
-                                            <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                                            Send Message
+                                            <Send size={14} md:size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                         </>
                                     )}
                                 </motion.button>
                             </form>
-                        </motion.div>
-                    </div>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

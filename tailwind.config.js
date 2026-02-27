@@ -8,24 +8,19 @@ export default {
         extend: {
             colors: {
                 bg: {
-                    primary: '#f8fafc',
-                    secondary: '#f1f5f9',
+                    dark: '#0a0a0a',
+                    card: '#141414',
                 },
-                text: {
-                    primary: '#0f172a',
-                    secondary: '#334155',
-                },
-                accent: {
-                    DEFAULT: '#2563eb',
-                    hover: '#1d4ed8',
-                    glow: 'rgba(37, 99, 235, 0.2)',
-                },
-                charcoal: '#0f172a',
-                slate: '#64748b',
+                growaz: {
+                    orange: '#ff6b2b',
+                    yellow: '#f4d06f',
+                    muted: '#a3a3a3',
+                }
             },
             fontFamily: {
-                heading: ['Poppins', 'sans-serif'],
+                heading: ['Outfit', 'sans-serif'],
                 body: ['Inter', 'sans-serif'],
+                serif: ['Playfair Display', 'serif'],
             },
         },
     },

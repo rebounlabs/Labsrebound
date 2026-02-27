@@ -1,23 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
+      setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+  }, []);
 
   const navLinks = [
     { name: 'Services', href: '#services' },
@@ -28,84 +23,122 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${scrolled
-        ? 'bg-white/80 backdrop-blur-lg border-b border-slate-200/50 py-4 shadow-sm'
-        : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-bg-dark/80 backdrop-blur-xl py-4 shadow-2xl' : 'bg-transparent py-8'
         }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      {/* Subtle Bottom Border Gradient */}
+      {scrolled && (
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      )}
+      <div className="container-custom flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="text-2xl font-bold font-heading tracking-tight flex items-center gap-1 group">
-          <span className="text-slate-900 group-hover:text-black transition-colors">Rebound</span>
-          <span className="text-accent">Labs</span>
-        </a>
+        <motion.a
+          href="#"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-2xl font-bold font-heading tracking-tighter flex items-center gap-1 group"
+        >
+          <span className="text-white group-hover:text-growaz-orange transition-colors">Rebound</span>
+          <span className="text-growaz-orange">Labs</span>
+        </motion.a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-10">
           <div className="flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
+            {navLinks.map((link, index) => (
+              <motion.a
                 key={link.name}
                 href={link.href}
-                className="relative text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-300 group py-2"
-                onMouseEnter={() => setActiveLink(link.name)}
-                onMouseLeave={() => setActiveLink('')}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index }}
+                className="relative text-xs font-bold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors py-2 overflow-hidden group"
               >
-                {link.name}
-                {/* Subtle Hover Indicator */}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left opacity-80" />
-              </a>
+                <span className="relative z-10">{link.name}</span>
+                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-growaz-orange scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+              </motion.a>
             ))}
           </div>
 
           <motion.a
             href="#contact"
-            whileHover={{ scale: 1.05, boxShadow: "0 4px 15px rgba(37, 99, 235, 0.3)" }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-accent hover:bg-accent-hover text-white px-7 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-accent/20 transition-all border border-accent/50"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-white text-black px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest hover:bg-growaz-orange hover:text-white transition-all shadow-xl shadow-white/5"
           >
             Get a Quote
           </motion.a>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-slate-800 focus:outline-none p-2 rounded-lg hover:bg-slate-100 transition-colors"
+        {/* Mobile Toggle */}
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="md:hidden text-white p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </motion.button>
       </div>
 
-      {/* Mobile Navigation Dropdown */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 overflow-hidden shadow-xl"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 120 }}
+            className="md:hidden fixed inset-0 w-full h-screen bg-bg-dark z-[100] flex flex-col items-center justify-center space-y-8 p-10"
           >
-            <div className="container mx-auto px-6 py-8 flex flex-col space-y-4">
-              {navLinks.map((link) => (
-                <a
+            {/* Header in menu */}
+            <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center border-b border-white/5">
+              <div className="text-2xl font-bold font-heading tracking-tighter flex items-center gap-1">
+                <span className="text-white">Rebound</span>
+                <span className="text-growaz-orange">Labs</span>
+              </div>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            <div className="flex flex-col items-center space-y-8 w-full">
+              {navLinks.map((link, index) => (
+                <motion.a
                   key={link.name}
                   href={link.href}
-                  className="text-lg font-medium text-slate-700 hover:text-accent hover:bg-slate-50 px-4 py-3 rounded-xl transition-all"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * index + 0.2 }}
+                  className="text-4xl md:text-5xl font-heading font-black text-white hover:text-growaz-orange transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </motion.a>
               ))}
-              <div className="pt-4 border-t border-slate-100 mt-2">
-                <a
-                  href="#contact"
-                  className="block w-full bg-accent text-white text-center py-4 rounded-xl font-bold shadow-lg shadow-accent/20 active:scale-95 transition-transform"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Get a Quote
-                </a>
-              </div>
+            </div>
+
+            <motion.a
+              href="#contact"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="w-full max-w-xs bg-white text-black text-center py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs shadow-2xl"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Start Your Project
+            </motion.a>
+
+            {/* Footer markers in menu */}
+            <div className="absolute bottom-10 flex gap-6 text-white/20 text-[10px] font-black uppercase tracking-widest">
+              <span>Kerala, India</span>
+              <span className="w-1 h-1 bg-white/10 rounded-full my-auto" />
+              <span>Global Ops</span>
             </div>
           </motion.div>
         )}
