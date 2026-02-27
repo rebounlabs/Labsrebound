@@ -30,7 +30,7 @@ const serviceList = [
 
 const Services = () => {
     return (
-        <section id="services" className="py-40 bg-bg-dark text-white relative overflow-hidden">
+        <section id="services" className="py-24 md:py-40 bg-bg-dark text-white relative overflow-hidden px-4 md:px-0">
             {/* Background Decor */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-growaz-yellow/5 blur-[120px] rounded-full pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-growaz-orange/5 blur-[120px] rounded-full pointer-events-none" />
@@ -42,10 +42,10 @@ const Services = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <span className="text-growaz-orange text-xs font-bold uppercase tracking-[0.3em] mb-6 block">Our Expertise</span>
-                        <h2 className="text-5xl md:text-8xl font-heading font-black leading-[0.9] tracking-tighter">
+                        <span className="text-growaz-orange text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 block">Our Expertise</span>
+                        <h2 className="text-5xl md:text-8xl font-heading font-black leading-tight md:leading-[0.9] tracking-tighter">
                             Services that <br />
-                            <span className="font-serif-italic opacity-80">are tailored</span>
+                            <span className="font-serif-italic opacity-80 text-growaz-orange">are tailored</span>
                         </h2>
                     </motion.div>
 
@@ -54,7 +54,7 @@ const Services = () => {
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="btn-growaz group px-10 py-5"
+                            className="btn-growaz group px-10 py-5 w-full md:w-auto justify-center"
                         >
                             <div className="btn-icon">
                                 <Plus size={16} className="group-hover:rotate-90 transition-transform" />
@@ -72,10 +72,10 @@ const Services = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.6 }}
-                            className="bg-white/[0.02] backdrop-blur-sm border border-white/5 rounded-[32px] md:rounded-[48px] p-8 md:p-10 flex flex-col justify-between group hover:border-growaz-orange/30 hover:bg-white/[0.04] transition-all duration-500"
+                            className="bg-white/[0.02] backdrop-blur-sm border border-white/5 rounded-[32px] md:rounded-[48px] p-6 md:p-10 flex flex-col justify-between group hover:border-growaz-orange/30 hover:bg-white/[0.04] transition-all duration-500"
                         >
                             <div>
-                                <div className="flex justify-between items-start mb-10 md:mb-12">
+                                <div className="flex justify-between items-start mb-8 md:mb-12">
                                     <div className="w-12 h-12 md:w-14 md:h-14 bg-white/5 rounded-[18px] md:rounded-2xl flex items-center justify-center text-growaz-orange group-hover:scale-110 group-hover:bg-growaz-orange group-hover:text-white transition-all duration-500 shadow-xl">
                                         {service.icon}
                                     </div>
@@ -84,11 +84,11 @@ const Services = () => {
 
                                 <h3 className="text-2xl md:text-3xl font-heading font-black mb-6 md:mb-8 leading-tight tracking-tight group-hover:text-growaz-orange transition-colors">{service.title}</h3>
 
-                                <div className="flex flex-wrap gap-2 mb-10 md:mb-12">
+                                <div className="flex flex-wrap gap-2 mb-8 md:mb-12">
                                     {service.tags.map((tag, i) => (
                                         <span
                                             key={i}
-                                            className="text-[9px] font-bold text-white/30 border border-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-full uppercase tracking-widest group-hover:border-white/10 group-hover:text-white/50 transition-colors"
+                                            className="text-[8px] md:text-[9px] font-bold text-white/30 border border-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-full uppercase tracking-widest group-hover:border-white/10 group-hover:text-white/50 transition-colors"
                                         >
                                             {tag}
                                         </span>
