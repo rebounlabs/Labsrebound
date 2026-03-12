@@ -10,6 +10,7 @@ const About = () => {
     });
 
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.9, 1, 1, 0.9]);
     const storyText = "Rebound Labs wasn't built in a boardroom; it was born from a shared obsession with perfect code and pixel-perfect design. As a premier web design company in Kerala, we are a collective of digital artisans who believe that your website is your most powerful employee. In a digital landscape cluttered with templates, we cut through the noise. We specialize in custom website development and ecommerce website development in Kerala, crafting bespoke, high-speed web experiences that actively drive your business goals forward in Kochi and beyond.";
 
     return (
