@@ -44,14 +44,14 @@ const About = () => {
                             <div className="absolute -top-12 -right-12 md:-top-24 md:-right-24 w-40 md:w-64 h-40 md:h-64 bg-growaz-orange/20 blur-[60px] md:blur-[100px] rounded-full pointer-events-none group-hover:bg-growaz-orange/30 transition-all duration-700" />
                             <div className="absolute -bottom-12 -left-12 md:-bottom-24 md:-left-24 w-40 md:w-64 h-40 md:h-64 bg-growaz-yellow/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none" />
 
-                            <p className="text-sm md:text-3xl text-white/70 leading-relaxed font-medium text-left mb-10 md:mb-16 relative z-10 antialiased">
+                            <p className="text-xl md:text-5xl text-white/70 leading-snug md:leading-[1.2] font-black text-left mb-10 md:mb-16 relative z-10 antialiased tracking-tight">
                                 {storyText.split(' ').map((word, i) => (
                                     <motion.span
                                         key={word + i}
-                                        initial={{ opacity: 0.1, y: 5 }}
+                                        initial={{ opacity: 0.1, y: 10 }}
                                         whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: i * 0.008, duration: 0.4 }}
-                                        viewport={{ once: false, margin: "-20px" }}
+                                        transition={{ delay: i * 0.015, duration: 0.5, ease: "easeOut" }}
+                                        viewport={{ once: false, margin: "-10% 0px -10% 0px" }}
                                         className="inline-block mr-[0.3em] hover:text-white transition-colors cursor-default"
                                     >
                                         {word}

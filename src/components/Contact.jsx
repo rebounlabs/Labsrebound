@@ -129,90 +129,86 @@ const Contact = () => {
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="relative"
+                        className="relative lg:pl-12"
                     >
-                        {/* Box Decoration */}
-                        <div className="absolute -inset-4 bg-gradient-to-br from-growaz-orange/10 to-transparent blur-2xl rounded-[60px] opacity-30" />
+                        <form onSubmit={handleSubmit} className="space-y-12 md:space-y-16">
+                            <div className="space-y-4">
+                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-growaz-orange">01. What's your name?</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={formState.name}
+                                    onChange={handleChange}
+                                    required
+                                    placeholder="John Doe *"
+                                    className="w-full bg-transparent border-b-2 border-white/10 py-4 md:py-6 text-white text-2xl md:text-4xl font-heading font-black placeholder-white/10 focus:outline-none focus:border-growaz-orange transition-colors rounded-none"
+                                />
+                            </div>
 
-                        <div className="bg-white/[0.03] backdrop-blur-xl border border-white/5 p-8 md:p-14 rounded-[32px] md:rounded-[56px] relative shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
-                            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                                    <div className="space-y-3">
-                                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-2">Your Name</label>
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            value={formState.name}
-                                            onChange={handleChange}
-                                            required
-                                            placeholder="John Doe"
-                                            className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl px-5 md:px-6 py-4 md:py-4 text-white text-sm md:text-base placeholder-white/20 focus:outline-none focus:border-growaz-orange transition-all font-medium"
-                                        />
-                                    </div>
-                                    <div className="space-y-3">
-                                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-2">Email Address</label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            value={formState.email}
-                                            onChange={handleChange}
-                                            required
-                                            placeholder="john@example.com"
-                                            className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl px-5 md:px-6 py-4 md:py-4 text-white text-sm md:text-base placeholder-white/20 focus:outline-none focus:border-growaz-orange transition-all font-medium"
-                                        />
-                                    </div>
-                                </div>
+                            <div className="space-y-4">
+                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-growaz-yellow">02. Your Email Address?</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={formState.email}
+                                    onChange={handleChange}
+                                    required
+                                    placeholder="john@example.com *"
+                                    className="w-full bg-transparent border-b-2 border-white/10 py-4 md:py-6 text-white text-2xl md:text-4xl font-heading font-black placeholder-white/10 focus:outline-none focus:border-growaz-yellow transition-colors rounded-none"
+                                />
+                            </div>
 
-                                <div className="space-y-3">
-                                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-2">Select Service</label>
-                                    <div className="relative">
-                                        <select
-                                            name="service"
-                                            value={formState.service}
-                                            onChange={handleChange}
-                                            className="w-full bg-white/5 border border-white/5 rounded-xl md:rounded-2xl px-5 md:px-6 py-4 md:py-4 text-white text-sm md:text-base focus:outline-none focus:border-growaz-orange transition-all font-medium appearance-none"
-                                        >
-                                            <option value="Web Development" className="bg-bg-dark">Web Development</option>
-                                            <option value="UI/UX Design" className="bg-bg-dark">UI/UX Design</option>
-                                            <option value="Enterprise Apps" className="bg-bg-dark">Enterprise Apps</option>
-                                            <option value="Other" className="bg-bg-dark">Other</option>
-                                        </select>
-                                        <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-white/20">
-                                            <Plus size={18} md:size={20} />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="space-y-3">
-                                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-2">Project Details</label>
-                                    <textarea
-                                        name="message"
-                                        value={formState.message}
+                            <div className="space-y-4">
+                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-growaz-orange">03. What are you looking for?</label>
+                                <div className="relative">
+                                    <select
+                                        name="service"
+                                        value={formState.service}
                                         onChange={handleChange}
-                                        required
-                                        rows="4"
-                                        placeholder="Tell us about your goals..."
-                                        className="w-full bg-white/5 border border-white/5 rounded-2xl md:rounded-3xl px-5 md:px-6 py-4 md:py-4 text-white text-sm md:text-base placeholder-white/20 focus:outline-none focus:border-growaz-orange transition-all font-medium resize-none"
-                                    />
+                                        className="w-full bg-transparent border-b-2 border-white/10 py-4 md:py-6 text-white text-2xl md:text-4xl font-heading font-black focus:outline-none focus:border-growaz-orange transition-colors appearance-none rounded-none cursor-pointer"
+                                    >
+                                        <option value="Web Development" className="bg-bg-dark text-lg">Web Development</option>
+                                        <option value="UI/UX Design" className="bg-bg-dark text-lg">UI/UX Design</option>
+                                        <option value="Enterprise Apps" className="bg-bg-dark text-lg">Enterprise Apps</option>
+                                        <option value="Other" className="bg-bg-dark text-lg">Other</option>
+                                    </select>
+                                    <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-white/30">
+                                        <Plus size={32} />
+                                    </div>
                                 </div>
+                            </div>
 
-                                <motion.button
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    disabled={status === 'submitting'}
-                                    className="w-full bg-white text-black py-4 md:py-5 rounded-xl md:rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] md:text-xs flex items-center justify-center gap-3 group disabled:opacity-50 shadow-xl shadow-white/5"
-                                >
-                                    {status === 'submitting' ? (
-                                        "Sending..."
-                                    ) : (
-                                        <>
-                                            Send Message
-                                            <Send size={14} md:size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                        </>
-                                    )}
-                                </motion.button>
-                            </form>
-                        </div>
+                            <div className="space-y-4">
+                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-white/50">04. Tell us about your project</label>
+                                <textarea
+                                    name="message"
+                                    value={formState.message}
+                                    onChange={handleChange}
+                                    required
+                                    rows="1"
+                                    placeholder="Project details... *"
+                                    className="w-full bg-transparent border-b-2 border-white/10 py-4 md:py-6 text-white text-2xl md:text-4xl font-heading font-black placeholder-white/10 focus:outline-none focus:border-white transition-colors resize-y min-h-[100px] rounded-none"
+                                />
+                            </div>
+
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                disabled={status === 'submitting'}
+                                className="w-full md:w-auto px-12 md:px-20 py-6 md:py-8 bg-white text-black rounded-full font-black uppercase tracking-[0.3em] text-xs md:text-sm flex items-center justify-center gap-4 group disabled:opacity-50 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_80px_rgba(255,255,255,0.3)] hover:bg-gradient-to-r hover:from-growaz-orange hover:to-growaz-yellow transition-all duration-500"
+                            >
+                                {status === 'submitting' ? (
+                                    "Sending..."
+                                ) : (
+                                    <>
+                                        Send Message
+                                        <div className="w-8 h-8 md:w-10 md:h-10 bg-black/10 rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+                                            <Send size={16} md:size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform group-hover:text-black" />
+                                        </div>
+                                    </>
+                                )}
+                            </motion.button>
+                        </form>
                     </motion.div>
                 </div>
             </div>

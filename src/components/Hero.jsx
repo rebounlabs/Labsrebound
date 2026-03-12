@@ -1,122 +1,111 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Shield, Search, Layout } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Sparkles } from 'lucide-react';
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.15,
+            delayChildren: 0.3,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: { type: 'spring', stiffness: 100, damping: 20 },
+    },
+};
 
 const Hero = () => {
-    const iconVariants = {
-        animate: (i) => ({
-            y: [0, -10, 0], // Reduced for mobile
-            rotate: [0, i % 2 === 0 ? 5 : -5, 0],
-            transition: {
-                duration: 4 + i,
-                repeat: Infinity,
-                ease: "easeInOut",
-            }
-        })
-    };
+    const { scrollY } = useScroll();
+    const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
+    const y2 = useTransform(scrollY, [0, 1000], [0, -100]);
+    const scale = useTransform(scrollY, [0, 500], [1, 0.95]);
 
     return (
-        <section className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pt-28 md:pt-20 overflow-hidden px-4">
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] md:w-[800px] h-[280px] md:h-[500px] bg-growaz-orange/10 blur-[60px] md:blur-[120px] rounded-full pointer-events-none" />
+        <section className="relative min-h-[100vh] flex flex-col items-center justify-center pt-28 md:pt-32 overflow-hidden px-4 md:px-8">
+            {/* Animated Aurora Background Blobs */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl aspect-square pointer-events-none opacity-40 mix-blend-screen">
+                <div className="absolute top-1/4 left-1/4 w-3/4 h-3/4 rounded-full bg-growaz-orange/30 blur-[100px] animate-blob" />
+                <div className="absolute bottom-1/4 right-1/4 w-3/4 h-3/4 rounded-full bg-growaz-yellow/30 blur-[100px] animate-blob animation-delay-2000" />
+                <div className="absolute top-1/2 left-1/2 w-1/2 h-1/2 rounded-full bg-growaz-orange/40 blur-[80px] animate-slow-spin" />
+            </div>
 
-            {/* Floating Icons - Subtle on Mobile */}
-            <motion.div custom={1} variants={iconVariants} animate="animate" className="absolute top-[12%] left-[8%] md:left-[15%] text-growaz-orange/20 opacity-30 md:opacity-100">
-                <Zap className="w-10 h-10 md:w-20 md:h-20" strokeWidth={1} />
-            </motion.div>
-            <motion.div custom={2} variants={iconVariants} animate="animate" className="absolute top-[18%] right-[8%] md:right-[15%] text-growaz-yellow/20 opacity-30 md:opacity-100">
-                <Shield className="w-12 h-12 md:w-24 md:h-24" strokeWidth={1} />
-            </motion.div>
-
-            <div className="container-custom relative z-10 text-center">
-                <div className="flex flex-col items-center">
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="mb-6 md:mb-8"
-                    >
-                        <span className="inline-block px-4 py-1.5 md:px-5 md:py-2 rounded-full bg-white/5 border border-white/10 text-growaz-orange font-bold text-[8px] md:text-[10px] uppercase tracking-[0.3em] backdrop-blur-sm">
-                            🚀 Kerala's Elite Web Engineering Studio
+            <motion.div
+                style={{ y: y1, scale }}
+                className="container-custom relative z-10 text-center"
+            >
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="flex flex-col items-center max-w-5xl mx-auto"
+                >
+                    {/* Top Badge */}
+                    <motion.div variants={itemVariants} className="mb-8 md:mb-12">
+                        <span className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-white font-bold text-[10px] md:text-sm uppercase tracking-[0.3em] backdrop-blur-md shadow-[0_0_20px_rgba(255,107,43,0.15)]">
+                            <Sparkles size={14} className="text-growaz-orange" />
+                            Elevate Your Digital Presence
                         </span>
                     </motion.div>
 
-                    {/* Main Hero Box */}
-                    <div className="relative border border-white/10 rounded-[40px] md:rounded-[48px] px-6 py-14 md:px-8 md:py-24 bg-white/[0.01] backdrop-blur-[2px] max-w-5xl w-full">
-
-                        {/* Corner Markers */}
-                        <div className="absolute top-4 left-4 md:top-6 md:left-6 w-1 md:w-1.5 h-1 md:h-1.5 bg-growaz-orange/40 rounded-full" />
-                        <div className="absolute top-4 right-4 md:top-6 md:right-6 w-1 md:w-1.5 h-1 md:h-1.5 bg-growaz-orange/40 rounded-full" />
-                        <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 w-1 md:w-1.5 h-1 md:h-1.5 bg-growaz-orange/40 rounded-full" />
-                        <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-1 md:w-1.5 h-1 md:h-1.5 bg-growaz-orange/40 rounded-full" />
-
-                        {/* Badges - Repositioned and Visible on Mobile */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="absolute -right-2 md:-right-8 top-[50%] md:top-[52%] flex items-center gap-2 bg-growaz-orange px-4 py-2 md:px-6 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-white shadow-2xl shadow-growaz-orange/20 z-20"
-                        >
-                            <div className="w-0 h-0 border-t-[4px] md:border-t-[6px] border-t-transparent border-r-[6px] md:border-r-[10px] border-r-growaz-orange border-b-[4px] md:border-b-[6px] border-b-transparent absolute -left-1.5 md:-left-2" />
-                            Engineering
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.7 }}
-                            className="absolute -left-2 md:-left-8 top-[30%] md:top-[32%] flex items-center gap-2 bg-growaz-yellow px-4 py-2 md:px-6 md:py-3 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-black shadow-2xl shadow-growaz-yellow/20 z-20"
-                        >
-                            Strategic
-                            <div className="w-0 h-0 border-t-[4px] md:border-t-[6px] border-t-transparent border-l-[6px] md:border-l-[10px] border-l-growaz-yellow border-b-[4px] md:border-b-[6px] border-b-transparent absolute -right-1.5 md:-right-2" />
-                        </motion.div>
-
-                        {/* Heading */}
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="text-6xl md:text-8xl lg:text-9xl font-heading font-black text-white leading-[0.9] mb-8 md:mb-10 tracking-tighter"
-                        >
-                            Build Your <br />
-                            <span className="font-serif-italic opacity-80 text-growaz-orange">Empire.</span>
-                        </motion.h1>
-
-                        {/* Subtext */}
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4 }}
-                            className="text-white/40 text-sm md:text-lg max-w-2xl mx-auto mb-10 md:mb-16 font-medium leading-relaxed italic"
-                        >
-                            We craft high-performance digital experiences that drive growth, build trust, and set you apart.
-                        </motion.p>
-                    </div>
-
-                    {/* Button */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 }}
-                        className="mt-10 md:mt-16"
+                    {/* Main Massive Heading */}
+                    <motion.h1
+                        className="text-[4rem] md:text-[8rem] lg:text-[10rem] font-heading font-black text-white leading-[0.85] tracking-tighter mb-8 md:mb-12"
                     >
-                        <a href="#contact" className="inline-block">
-                            <button className="btn-growaz group py-4 px-10 md:py-5 md:px-12 text-[10px] md:text-sm tracking-widest uppercase font-black overflow-hidden relative shadow-2xl shadow-growaz-orange/20">
+                        <motion.div variants={itemVariants} className="overflow-hidden">
+                            <span className="block">Crafting</span>
+                        </motion.div>
+                        <motion.div variants={itemVariants} className="overflow-hidden flex items-center justify-center gap-4 md:gap-8 flex-wrap">
+                            <span className="block italic font-serif-italic font-normal text-growaz-orange pr-2">Premium</span>
+                            <span className="block">Digital</span>
+                        </motion.div>
+                        <motion.div variants={itemVariants} className="overflow-hidden">
+                            <span className="block">Experiences.</span>
+                        </motion.div>
+                    </motion.h1>
+
+                    {/* Subtext */}
+                    <motion.p
+                        variants={itemVariants}
+                        className="text-white/50 text-base md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 md:mb-16 font-body font-normal leading-relaxed"
+                    >
+                        We are a highly specialized web studio transforming bold ideas into high-performance, visually stunning realities.
+                    </motion.p>
+
+                    {/* CTA Group */}
+                    <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-6">
+                        <a href="#services">
+                            <button className="relative group px-10 py-5 bg-white text-black rounded-full font-black uppercase tracking-widest text-sm overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] transition-all duration-500 hover:scale-105 active:scale-95">
                                 <span className="relative z-10 flex items-center gap-3">
-                                    <span className="btn-icon">
-                                        <ArrowRight size={14} md:size={16} className="group-hover:translate-x-1 transition-transform" />
-                                    </span>
-                                    Get Started
+                                    Explore Our Work
+                                    <ArrowRight size={18} className="group-hover:translate-x-1 group-hover:-rotate-45 transition-transform duration-300" />
                                 </span>
-                                <div className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left opacity-10" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-growaz-orange to-growaz-yellow opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             </button>
                         </a>
                     </motion.div>
+                </motion.div>
+            </motion.div>
 
-                </div>
-            </div>
+            {/* Floating abstract geometrical shapes (desktop only) */}
+            <motion.div
+                style={{ y: y2 }}
+                className="hidden lg:block absolute bottom-[10%] left-[10%] w-32 h-32 border border-white/5 rounded-[40px] rotate-12 backdrop-blur-sm"
+            />
+            <motion.div
+                style={{ y: y1 }}
+                className="hidden lg:block absolute top-[20%] right-[10%] w-24 h-24 border border-growaz-orange/20 rounded-full backdrop-blur-sm"
+            />
 
             {/* Bottom Gradient Fade */}
-            <div className="absolute bottom-0 left-0 w-full h-24 md:h-48 bg-gradient-to-t from-bg-dark to-transparent" />
+            <div className="absolute bottom-0 left-0 w-full h-32 md:h-64 bg-gradient-to-t from-bg-dark via-bg-dark/80 to-transparent pointer-events-none" />
         </section>
     );
 };

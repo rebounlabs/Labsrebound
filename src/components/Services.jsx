@@ -1,115 +1,127 @@
-import { motion } from 'framer-motion';
-import { Plus, Code, Layout, Globe, Smartphone, Database, ShieldCheck } from 'lucide-react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Plus, Code, Layout, Globe, Smartphone, CircleDashed } from 'lucide-react';
 
 const serviceList = [
     {
         number: "01",
-        icon: <Code size={24} />,
+        icon: <Code size={30} />,
         title: "Custom Web Development",
-        tags: ["React & Vite", "Next.js", "Blazing Fast", "SEO Architecture"]
+        tags: ["React & Vite", "Next.js", "Blazing Fast", "SEO Architecture"],
+        color: "from-blue-500 to-cyan-400"
     },
     {
         number: "02",
-        icon: <Layout size={24} />,
+        icon: <Layout size={30} />,
         title: "UI/UX Design Strategy",
-        tags: ["High-Fidelity", "Wireframing", "User Experience", "Interactive Prototypes"]
+        tags: ["High-Fidelity", "Wireframing", "User Experience", "Interactive Prototypes"],
+        color: "from-growaz-orange to-growaz-yellow"
     },
     {
         number: "03",
-        icon: <Globe size={24} />,
+        icon: <Globe size={30} />,
         title: "Enterprise Web Apps",
-        tags: ["Dashboards", "SaaS Solutions", "Scalable backend", "Data Visualization"]
+        tags: ["Dashboards", "SaaS Solutions", "Scalable backend", "Data Visualization"],
+        color: "from-purple-500 to-pink-500"
     },
     {
         number: "04",
-        icon: <Smartphone size={24} />,
+        icon: <Smartphone size={30} />,
         title: "API & Mobile Strategy",
-        tags: ["REST APIs", "Integration", "PWA", "Cross-Platform"]
+        tags: ["REST APIs", "Integration", "PWA", "Cross-Platform"],
+        color: "from-green-400 to-emerald-600"
     }
 ];
 
-const Services = () => {
+const Card = ({ service, i, progress, range, targetScale }) => {
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ['start end', 'start start']
+    });
+
+    const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
+    const scale = useTransform(progress, range, [1, targetScale]);
+
     return (
-        <section id="services" className="py-24 md:py-40 bg-bg-dark text-white relative overflow-hidden px-4 md:px-0">
-            {/* Background Decor */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-growaz-yellow/5 blur-[120px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-growaz-orange/5 blur-[120px] rounded-full pointer-events-none" />
+        <div ref={containerRef} className="h-screen flex items-center justify-center sticky top-0 px-4 md:px-0">
+            <motion.div
+                style={{ scale, top: `calc(-5vh + ${i * 40}px)` }}
+                className="relative flex flex-col md:flex-row max-w-5xl w-full h-[500px] md:h-[600px] rounded-[40px] p-8 md:p-14 bg-bg-card border border-white/5 overflow-hidden origin-top shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+            >
+                {/* Background Glow */}
+                <div className={`absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br ${service.color} opacity-10 blur-[100px] rounded-full pointer-events-none`} />
 
-            <div className="container-custom relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-10">
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <span className="text-growaz-orange text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 block">Our Expertise</span>
-                        <h2 className="text-5xl md:text-8xl font-heading font-black leading-tight md:leading-[0.9] tracking-tighter">
-                            Services that <br />
-                            <span className="font-serif-italic opacity-80 text-growaz-orange">are tailored</span>
-                        </h2>
-                    </motion.div>
+                <div className="flex flex-col justify-between w-full relative z-10">
+                    <div>
+                        <div className="flex justify-between items-start mb-10 md:mb-16">
+                            <motion.div
+                                className={`w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br ${service.color} rounded-[20px] flex items-center justify-center text-white shadow-xl shadow-black/20`}
+                            >
+                                {service.icon}
+                            </motion.div>
+                            <span className="text-white/10 text-4xl md:text-6xl font-serif-italic font-black italic">{service.number}</span>
+                        </div>
 
-                    <a href="#contact">
-                        <motion.button
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="btn-growaz group px-10 py-5 w-full md:w-auto justify-center"
-                        >
-                            <div className="btn-icon">
-                                <Plus size={16} className="group-hover:rotate-90 transition-transform" />
-                            </div>
-                            Explore Work
-                        </motion.button>
-                    </a>
+                        <h3 className="text-3xl md:text-5xl font-heading font-black mb-8 leading-tight tracking-tight text-white">{service.title}</h3>
+
+                        <div className="flex flex-wrap gap-3">
+                            {service.tags.map((tag, idx) => (
+                                <span
+                                    key={idx}
+                                    className="text-[9px] md:text-xs font-bold text-white/50 border border-white/10 px-4 py-2 md:px-5 md:py-2.5 rounded-full uppercase tracking-widest bg-white/[0.02] backdrop-blur-md"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
+            </motion.div>
+        </div>
+    );
+};
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                    {serviceList.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.6 }}
-                            className="bg-white/[0.02] backdrop-blur-sm border border-white/5 rounded-[32px] md:rounded-[48px] p-6 md:p-10 flex flex-col justify-between group hover:border-growaz-orange/30 hover:bg-white/[0.04] transition-all duration-500"
-                        >
-                            <div>
-                                <div className="flex justify-between items-start mb-8 md:mb-12">
-                                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white/5 rounded-[18px] md:rounded-2xl flex items-center justify-center text-growaz-orange group-hover:scale-110 group-hover:bg-growaz-orange group-hover:text-white transition-all duration-500 shadow-xl">
-                                        {service.icon}
-                                    </div>
-                                    <span className="text-white/10 text-base md:text-lg font-serif-italic font-black italic">{service.number}</span>
-                                </div>
+const Services = () => {
+    const container = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start start', 'end end']
+    });
 
-                                <h3 className="text-2xl md:text-3xl font-heading font-black mb-6 md:mb-8 leading-tight tracking-tight group-hover:text-growaz-orange transition-colors">{service.title}</h3>
+    return (
+        <section id="services" className="bg-bg-dark text-white relative">
+            {/* Header intro */}
+            <div className="h-[40vh] flex flex-col items-center justify-center sticky top-0 z-0">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center"
+                >
+                    <span className="text-growaz-orange text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] mb-6 block">Our Expertise</span>
+                    <h2 className="text-5xl md:text-8xl font-heading font-black leading-tight tracking-tighter">
+                        Services that <br />
+                        <span className="font-serif-italic bg-gradient-to-r from-growaz-orange to-growaz-yellow text-transparent bg-clip-text">Deliver.</span>
+                    </h2>
+                </motion.div>
+            </div>
 
-                                <div className="flex flex-wrap gap-2 mb-8 md:mb-12">
-                                    {service.tags.map((tag, i) => (
-                                        <span
-                                            key={i}
-                                            className="text-[8px] md:text-[9px] font-bold text-white/30 border border-white/5 px-3 py-1.5 md:px-4 md:py-2 rounded-full uppercase tracking-widest group-hover:border-white/10 group-hover:text-white/50 transition-colors"
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            <div className="flex justify-start">
-                                <a href="#contact">
-                                    <motion.button
-                                        whileHover={{ scale: 1.1 }}
-                                        whileTap={{ scale: 0.9 }}
-                                        className="w-10 h-10 md:w-12 md:h-12 border border-white/10 rounded-full flex items-center justify-center text-white/20 group-hover:bg-growaz-orange group-hover:text-white group-hover:border-growaz-orange transition-all duration-500"
-                                    >
-                                        <Plus size={18} />
-                                    </motion.button>
-                                </a>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+            {/* Stacked Cards */}
+            <div ref={container} className="relative z-10 pb-[20vh]" style={{ marginTop: '10vh' }}>
+                {serviceList.map((service, i) => {
+                    const targetScale = 1 - ((serviceList.length - i) * 0.05);
+                    return (
+                        <Card
+                            key={i}
+                            i={i}
+                            service={service}
+                            progress={scrollYProgress}
+                            range={[i * 0.25, 1]}
+                            targetScale={targetScale}
+                        />
+                    );
+                })}
             </div>
         </section>
     );
