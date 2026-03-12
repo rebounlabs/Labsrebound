@@ -46,7 +46,7 @@ const Loader = () => {
                     transition={{ delay: 0.5 }}
                     className="mt-8 text-center"
                 >
-                    <span className="text-[10px] uppercase font-black tracking-[0.5em] text-white/20">
+                    <span className="text-[10px] uppercase font-black tracking-[0.5em] text-zinc-400">
                         Engineering Excellence
                     </span>
                 </motion.div>

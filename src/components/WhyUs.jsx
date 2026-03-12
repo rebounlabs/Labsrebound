@@ -46,7 +46,7 @@ const WhyUs = () => {
             <div className="container-custom relative z-10">
                 <div className="flex flex-col xl:flex-row items-center justify-between mb-24 md:mb-32 text-center xl:text-left gap-12 xl:gap-20">
                     <motion.div style={{ opacity: headerOpacity, y: headerY }} className="max-w-4xl">
-                        <span className="text-white/40 text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] mb-8 block">
+                        <span className="text-zinc-300 text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] mb-8 block">
                             Why Partner With Us
                         </span>
                         <h2 className="text-[12vw] sm:text-6xl md:text-8xl lg:text-9xl font-heading font-black leading-[0.85] tracking-tighter">
@@ -68,7 +68,7 @@ const WhyUs = () => {
                             </div>
                             <div className="flex flex-col items-start">
                                 <span className="text-sm font-black tracking-widest uppercase text-white">50+ Clients</span>
-                                <span className="text-[10px] text-white/50 tracking-widest uppercase">Worldwide Trust</span>
+                                <span className="text-[10px] text-zinc-300 tracking-widest uppercase">Worldwide Trust</span>
                             </div>
                         </div>
                     </motion.div>
@@ -107,7 +107,7 @@ const WhyUs = () => {
                                 whileInView="whileInView"
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.15 + 0.3, duration: 0.6 }}
-                                className="text-white/40 text-base md:text-lg leading-relaxed font-body"
+                                className="text-zinc-300 text-base md:text-lg leading-relaxed font-body"
                             >
                                 {reason.description}
                             </motion.p>

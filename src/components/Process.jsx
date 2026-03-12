@@ -89,7 +89,7 @@ const Process = () => {
                             >
                                 {/* Step Indicator */}
                                 <div className="relative mb-12">
-                                    <div className={`w-20 h-20 md:w-24 md:h-24 bg-bg-card border border-white/10 rounded-[28px] flex items-center justify-center text-white/50 group-hover:scale-110 transition-transform duration-500 z-10 relative shadow-2xl`}>
+                                    <div className={`w-20 h-20 md:w-24 md:h-24 bg-bg-card border border-white/10 rounded-[28px] flex items-center justify-center text-zinc-300 group-hover:scale-110 transition-transform duration-500 z-10 relative shadow-2xl`}>
                                         <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-20 rounded-[28px] transition-opacity duration-500`} />
                                         {step.icon}
                                     </div>
@@ -103,7 +103,7 @@ const Process = () => {
                                 <h3 className="text-2xl md:text-3xl font-heading font-black mb-6 text-center lg:text-left group-hover:text-white transition-colors tracking-tight text-white/80">
                                     {step.title}
                                 </h3>
-                                <p className="text-white/40 text-sm md:text-base leading-relaxed font-body text-center lg:text-left max-w-[300px]">
+                                <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-body text-center lg:text-left max-w-[300px]">
                                     {step.description}
                                 </p>
 

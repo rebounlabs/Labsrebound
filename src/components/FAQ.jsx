@@ -74,7 +74,7 @@ const FAQ = () => {
                                             itemProp="acceptedAnswer"
                                             itemType="https://schema.org/Answer"
                                         >
-                                            <div className="px-6 md:px-8 pb-6 text-white/50 leading-relaxed pt-2 border-t border-white/5 font-body">
+                                            <div className="px-6 md:px-8 pb-6 text-zinc-300 leading-relaxed pt-2 border-t border-white/5 font-body">
                                                 <p itemProp="text">{faq.answer}</p>
                                             </div>
                                         </motion.div>

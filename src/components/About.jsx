@@ -66,12 +66,12 @@ const About = () => {
                                 <div className="flex gap-10 md:gap-16 items-center">
                                     <motion.div whileHover={{ scale: 1.05 }} className="group/stat cursor-default">
                                         <h4 className="text-white font-black text-3xl md:text-5xl mb-1 md:mb-2 italic group-hover:text-growaz-orange transition-colors tracking-tighter">100%</h4>
-                                        <p className="text-white/20 text-[8px] md:text-xs font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white/40 transition-colors">Satisfaction</p>
+                                        <p className="text-zinc-400 text-[8px] md:text-xs font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] group-hover:text-zinc-300 transition-colors">Satisfaction</p>
                                     </motion.div>
                                     <div className="w-px h-10 md:h-12 bg-white/5" />
                                     <motion.div whileHover={{ scale: 1.05 }} className="group/stat cursor-default">
                                         <h4 className="text-white font-black text-3xl md:text-5xl mb-1 md:mb-2 italic group-hover:text-growaz-yellow transition-colors tracking-tighter">3X</h4>
-                                        <p className="text-white/20 text-[8px] md:text-xs font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white/40 transition-colors">Faster Results</p>
+                                        <p className="text-zinc-400 text-[8px] md:text-xs font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] group-hover:text-zinc-300 transition-colors">Faster Results</p>
                                     </motion.div>
                                 </div>
 

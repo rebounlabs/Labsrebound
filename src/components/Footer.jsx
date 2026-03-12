@@ -20,7 +20,7 @@ const Footer = () => {
                             <span className="text-white group-hover:text-growaz-orange transition-colors">Rebound</span>
                             <span className="text-growaz-orange">Labs</span>
                         </a>
-                        <p className="text-white/30 text-sm md:text-base leading-relaxed font-bold italic">
+                        <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-bold italic">
                             Minimalism. Performance. Impact. <br className="hidden md:block" /> We build digital empires for the bold.
                         </p>
                     </div>
@@ -28,18 +28,18 @@ const Footer = () => {
                     {/* Links Grid */}
                     <div className="grid grid-cols-2 gap-12 lg:gap-24 w-full md:w-auto">
                         <div className="space-y-6">
-                            <h4 className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-white/20">Navigation</h4>
+                            <h4 className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-zinc-400">Navigation</h4>
                             <ul className="space-y-4">
                                 {['Services', 'About', 'Process', 'Contact'].map((item) => (
                                     <li key={item}>
-                                        <a href={`#${item.toLowerCase()}`} className="text-[11px] md:text-sm font-bold text-white/50 hover:text-growaz-orange transition-colors uppercase tracking-widest">{item}</a>
+                                        <a href={`#${item.toLowerCase()}`} className="text-[11px] md:text-sm font-bold text-zinc-300 hover:text-growaz-orange transition-colors uppercase tracking-widest">{item}</a>
                                     </li>
                                 ))}
                             </ul>
                         </div>
 
                         <div className="space-y-6">
-                            <h4 className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-white/20">Social</h4>
+                            <h4 className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-zinc-400">Social</h4>
                             <ul className="space-y-4">
                                 {[
                                     { name: 'Twitter', href: 'https://x.com/rebound_labs' },
@@ -47,7 +47,7 @@ const Footer = () => {
                                     { name: 'Instagram', href: 'https://www.instagram.com/rebound.labs' }
                                 ].map((item) => (
                                     <li key={item.name}>
-                                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-[11px] md:text-sm font-bold text-white/50 hover:text-growaz-yellow transition-colors uppercase tracking-widest">{item.name}</a>
+                                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-[11px] md:text-sm font-bold text-zinc-300 hover:text-growaz-yellow transition-colors uppercase tracking-widest">{item.name}</a>
                                     </li>
                                 ))}
                             </ul>
@@ -59,7 +59,7 @@ const Footer = () => {
                         onClick={scrollToTop}
                         whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.05)' }}
                         whileTap={{ scale: 0.9 }}
-                        className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/5 flex items-center justify-center text-white/20 hover:text-white hover:border-white/10 transition-all shadow-2xl"
+                        className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/5 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white/10 transition-all shadow-2xl"
                         aria-label="Scroll to top"
                     >
                         <ArrowUp size={20} md:size={24} />
@@ -67,12 +67,12 @@ const Footer = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-between items-center pt-10 md:pt-12 border-t border-white/5 gap-8">
-                    <p className="text-[8px] md:text-[10px] font-bold text-white/10 uppercase tracking-[0.4em]">
+                    <p className="text-[8px] md:text-[10px] font-bold text-zinc-500 uppercase tracking-[0.4em]">
                         © {new Date().getFullYear()} Rebound Labs. All rights reserved.
                     </p>
                     <div className="flex gap-8">
-                        <a href="#" className="text-[8px] md:text-[10px] font-bold text-white/10 uppercase tracking-[0.4em] hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="#" className="text-[8px] md:text-[10px] font-bold text-white/10 uppercase tracking-[0.4em] hover:text-white transition-colors">Terms of Service</a>
+                        <a href="#" className="text-[8px] md:text-[10px] font-bold text-zinc-500 uppercase tracking-[0.4em] hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="#" className="text-[8px] md:text-[10px] font-bold text-zinc-500 uppercase tracking-[0.4em] hover:text-white transition-colors">Terms of Service</a>
                     </div>
                 </div>
             </div>

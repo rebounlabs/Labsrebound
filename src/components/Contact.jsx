@@ -87,7 +87,7 @@ const Contact = () => {
                             <span className="font-serif-italic opacity-80 text-growaz-orange">build together?</span>
                         </h2>
 
-                        <p className="text-white/40 text-[13px] md:text-lg leading-relaxed mb-12 md:mb-16 max-w-md font-medium text-center md:text-left mx-auto md:mx-0">
+                        <p className="text-zinc-300 text-[13px] md:text-lg leading-relaxed mb-12 md:mb-16 max-w-md font-medium text-center md:text-left mx-auto md:mx-0">
                             Looking for the best web development agency in Kerala? We'd love to hear about your project. Send us a message and our Kochi team will get back to you within 24 hours.
                         </p>
 
@@ -100,7 +100,7 @@ const Contact = () => {
                                     <Mail size={20} md:size={24} />
                                 </div>
                                 <div className="space-y-1">
-                                    <p className="text-white/20 text-[9px] font-bold uppercase tracking-widest">Email Us</p>
+                                    <p className="text-zinc-400 text-[9px] font-bold uppercase tracking-widest">Email Us</p>
                                     <a itemProp="email" href="mailto:labsrebound@gmail.com" className="text-lg md:text-xl font-heading font-black hover:text-growaz-orange transition-colors break-all">labsrebound@gmail.com</a>
                                 </div>
                             </div>
@@ -110,18 +110,18 @@ const Contact = () => {
                                     <Phone size={20} md:size={24} />
                                 </div>
                                 <div className="space-y-1">
-                                    <p className="text-white/20 text-[9px] font-bold uppercase tracking-widest">Call Us</p>
+                                    <p className="text-zinc-400 text-[9px] font-bold uppercase tracking-widest">Call Us</p>
                                     <a itemProp="telephone" href="tel:+918129829294" className="text-lg md:text-xl font-heading font-black hover:text-growaz-yellow transition-colors">+91 81298 29294</a>
                                 </div>
                             </div>
 
                             <div className="p-6 md:p-8 bg-white/[0.02] border border-white/5 rounded-[32px] md:rounded-[40px] flex flex-col md:flex-row items-center gap-4 md:gap-6 max-w-sm backdrop-blur-md mx-auto md:mx-0 shadow-xl shadow-black/20">
-                                <div className="w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-full flex items-center justify-center text-white/40">
+                                <div className="w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-full flex items-center justify-center text-zinc-300">
                                     <Clock size={18} md:size={20} />
                                 </div>
                                 <div className="text-center md:text-left">
-                                    <p className="text-white/60 text-xs md:text-sm font-bold">Mon - Sat, 9AM - 6PM</p>
-                                    <p className="text-white/20 text-[8px] md:text-xs font-medium uppercase tracking-widest mt-1">Based in Kochi, Kerala. Global Ops.</p>
+                                    <p className="text-zinc-300 text-xs md:text-sm font-bold">Mon - Sat, 9AM - 6PM</p>
+                                    <p className="text-zinc-400 text-[8px] md:text-xs font-medium uppercase tracking-widest mt-1">Based in Kochi, Kerala. Global Ops.</p>
                                 </div>
                             </div>
                         </div>
@@ -175,14 +175,14 @@ const Contact = () => {
                                         <option value="Enterprise Apps" className="bg-bg-dark text-lg">Enterprise Apps</option>
                                         <option value="Other" className="bg-bg-dark text-lg">Other</option>
                                     </select>
-                                    <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-white/30">
+                                    <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-400">
                                         <Plus size={32} />
                                     </div>
                                 </div>
                             </div>
 
                             <div className="space-y-4">
-                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-white/50">04. Tell us about your project</label>
+                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-zinc-300">04. Tell us about your project</label>
                                 <textarea
                                     name="message"
                                     value={formState.message}

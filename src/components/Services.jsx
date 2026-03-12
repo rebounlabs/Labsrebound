@@ -69,7 +69,7 @@ const Card = ({ service, i, progress, range, targetScale }) => {
                             {service.tags.map((tag, idx) => (
                                 <span
                                     key={idx}
-                                    className="text-[9px] md:text-xs font-bold text-white/50 border border-white/10 px-4 py-2 md:px-5 md:py-2.5 rounded-full uppercase tracking-widest bg-white/[0.02] backdrop-blur-md"
+                                    className="text-[9px] md:text-xs font-bold text-zinc-300 border border-white/10 px-4 py-2 md:px-5 md:py-2.5 rounded-full uppercase tracking-widest bg-white/[0.02] backdrop-blur-md"
                                 >
                                     {tag}
                                 </span>

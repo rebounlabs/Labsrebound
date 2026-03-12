@@ -49,7 +49,7 @@ const Navbar = () => {
               <motion.a
                 key={link.name}
                 href={link.href}
-                className="relative text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors py-2 overflow-hidden group"
+                className="relative text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-300 hover:text-white transition-colors py-2 overflow-hidden group"
               >
                 <span className="relative z-10">{link.name}</span>
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-growaz-orange to-growaz-yellow scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
@@ -133,7 +133,7 @@ const Navbar = () => {
             </motion.a>
 
             {/* Footer markers in menu */}
-            <div className="absolute bottom-10 flex gap-6 text-white/20 text-[10px] font-black uppercase tracking-widest">
+            <div className="absolute bottom-10 flex gap-6 text-zinc-400 text-[10px] font-black uppercase tracking-widest">
               <span>Kerala, India</span>
               <span className="w-1 h-1 bg-white/10 rounded-full my-auto" />
               <span>Global Ops</span>
