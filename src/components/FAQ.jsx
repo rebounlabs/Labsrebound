@@ -53,6 +53,8 @@ const FAQ = () => {
                                 <button
                                     onClick={() => setOpenIndex(isOpen ? null : index)}
                                     className="w-full px-6 md:px-8 py-6 flex items-center justify-between text-left focus:outline-none"
+                                    aria-expanded={isOpen}
+                                    aria-controls={`faq-answer-${index}`}
                                 >
                                     <h3 itemProp="name" className="text-lg md:text-xl font-heading font-bold pr-8">{faq.question}</h3>
                                     <div className={`w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-growaz-orange text-white border-none' : 'border border-white/10'}`}>
@@ -63,6 +65,7 @@ const FAQ = () => {
                                 <AnimatePresence>
                                     {isOpen && (
                                         <motion.div
+                                            id={`faq-answer-${index}`}
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: "auto", opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}

@@ -73,6 +73,8 @@ const Navbar = () => {
           animate={{ opacity: 1 }}
           className="md:hidden text-white p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+          aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </motion.button>
@@ -97,6 +99,7 @@ const Navbar = () => {
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white"
+                aria-label="Close mobile menu"
               >
                 <X size={24} />
               </button>

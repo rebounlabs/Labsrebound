@@ -60,6 +60,7 @@ const Footer = () => {
                         whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.05)' }}
                         whileTap={{ scale: 0.9 }}
                         className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/5 flex items-center justify-center text-white/20 hover:text-white hover:border-white/10 transition-all shadow-2xl"
+                        aria-label="Scroll to top"
                     >
                         <ArrowUp size={20} md:size={24} />
                     </motion.button>
