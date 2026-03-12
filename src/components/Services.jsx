@@ -100,7 +100,7 @@ const Services = () => {
                     className="text-center"
                 >
                     <span className="text-growaz-orange text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] mb-6 block">Our Expertise</span>
-                    <h2 className="text-5xl md:text-8xl font-heading font-black leading-tight tracking-tighter">
+                    <h2 className="text-[11vw] sm:text-5xl md:text-8xl font-heading font-black leading-tight tracking-tighter">
                         Services that <br />
                         <span className="font-serif-italic bg-gradient-to-r from-growaz-orange to-growaz-yellow text-transparent bg-clip-text">Deliver.</span>
                     </h2>

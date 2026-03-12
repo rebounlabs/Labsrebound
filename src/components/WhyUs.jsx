@@ -49,7 +49,7 @@ const WhyUs = () => {
                         <span className="text-white/40 text-[10px] md:text-xs font-bold uppercase tracking-[0.5em] mb-8 block">
                             Why Partner With Us
                         </span>
-                        <h2 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black leading-[0.85] tracking-tighter">
+                        <h2 className="text-[12vw] sm:text-6xl md:text-8xl lg:text-9xl font-heading font-black leading-[0.85] tracking-tighter">
                             Engineering <br />
                             <span className="font-serif-italic bg-gradient-to-r from-growaz-yellow to-growaz-orange text-transparent bg-clip-text">for the Future.</span>
                         </h2>

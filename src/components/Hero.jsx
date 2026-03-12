@@ -57,7 +57,7 @@ const Hero = () => {
 
                     {/* Main Massive Heading */}
                     <motion.h1
-                        className="text-[4rem] md:text-[8rem] lg:text-[10rem] font-heading font-black text-white leading-[0.85] tracking-tighter mb-8 md:mb-12"
+                        className="text-[13vw] sm:text-[4rem] md:text-[8rem] lg:text-[10rem] font-heading font-black text-white leading-[0.85] tracking-tighter mb-8 md:mb-12"
                     >
                         <motion.div variants={itemVariants} className="overflow-hidden">
                             <span className="block">Crafting</span>

@@ -58,7 +58,7 @@ const Process = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-6xl md:text-9xl font-heading font-black leading-[0.85] tracking-tighter"
+                        className="text-[13vw] sm:text-6xl md:text-9xl font-heading font-black leading-[0.85] tracking-tighter"
                     >
                         A Workflow <br />
                         <span className="font-serif-italic opacity-90 bg-gradient-to-r from-growaz-yellow to-growaz-orange text-transparent bg-clip-text">for Excellence.</span>

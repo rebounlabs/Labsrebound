@@ -30,7 +30,7 @@ const About = () => {
                         The Rebound Labs Story
                     </motion.span>
 
-                    <h2 className="text-4xl md:text-7xl font-heading font-black text-white leading-tight mb-10 md:mb-16 tracking-tighter">
+                    <h2 className="text-[10vw] sm:text-4xl md:text-7xl font-heading font-black text-white leading-tight mb-10 md:mb-16 tracking-tighter">
                         Driven by Passion, <br />
                         <span className="font-serif-italic text-growaz-orange">Defined by Quality.</span>
                     </h2>
