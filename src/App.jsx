@@ -7,6 +7,7 @@ import WhyUs from './components/WhyUs';
 import About from './components/About';
 import Services from './components/Services';
 import Process from './components/Process';
+import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppWidget from './components/WhatsAppWidget';
@@ -55,6 +56,7 @@ function App() {
             <About />
             <Services />
             <Process />
+            <FAQ />
             <Contact />
             <Footer />
             <WhatsAppWidget />

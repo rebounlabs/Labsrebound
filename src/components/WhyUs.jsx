@@ -22,7 +22,7 @@ const reasons = [
         color: "bg-growaz-yellow/10 text-growaz-yellow border-growaz-yellow/20",
         glow: "bg-growaz-yellow/10",
         title: 'Global Standards',
-        description: 'Based in Kerala, building for the world. We adhere to international best practices for performance and SEO.'
+        description: 'Based in Kochi, Kerala but building for the world. As a top web development agency, we adhere to international best practices.'
     }
 ];
 

@@ -6,8 +6,8 @@ const serviceList = [
     {
         number: "01",
         icon: <Code size={30} />,
-        title: "Custom Web Development",
-        tags: ["React & Vite", "Next.js", "Blazing Fast", "SEO Architecture"],
+        title: "Web Development in Kerala",
+        tags: ["React & Vite", "Next.js", "Blazing Fast", "SEO architecture"],
         color: "from-blue-500 to-cyan-400"
     },
     {

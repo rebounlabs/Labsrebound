@@ -10,9 +10,7 @@ const About = () => {
     });
 
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.1], [0.95, 1]);
-
-    const storyText = "Rebound Labs wasn't built in a boardroom; it was born from a shared obsession with perfect code and pixel-perfect design. We are a Kerala-based collective of digital artisans who believe that a website is your most powerful employee. In a digital landscape cluttered with templates and generic solutions, we cut through the noise. We specialize in crafting bespoke, high-speed, and accessible web experiences that not only tell your story but actively drive your business goals forward.";
+    const storyText = "Rebound Labs wasn't built in a boardroom; it was born from a shared obsession with perfect code and pixel-perfect design. As a premier web design company in Kerala, we are a collective of digital artisans who believe that your website is your most powerful employee. In a digital landscape cluttered with templates, we cut through the noise. We specialize in custom website development and ecommerce website development in Kerala, crafting bespoke, high-speed web experiences that actively drive your business goals forward in Kochi and beyond.";
 
     return (
         <section id="about" ref={sectionRef} className="py-24 md:py-40 bg-bg-dark relative overflow-hidden px-4 md:px-0">

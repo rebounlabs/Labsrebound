@@ -88,17 +88,20 @@ const Contact = () => {
                         </h2>
 
                         <p className="text-white/40 text-[13px] md:text-lg leading-relaxed mb-12 md:mb-16 max-w-md font-medium text-center md:text-left mx-auto md:mx-0">
-                            Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.
+                            Looking for the best web development agency in Kerala? We'd love to hear about your project. Send us a message and our Kochi team will get back to you within 24 hours.
                         </p>
 
-                        <div className="space-y-8 md:space-y-10 mb-16 lg:mb-0">
+                        <div className="space-y-8 md:space-y-10 mb-16 lg:mb-0" itemScope itemType="https://schema.org/LocalBusiness">
+                            <meta itemProp="name" content="Rebound Labs" />
+                            <meta itemProp="address" content="Kochi, Kerala, India" />
+
                             <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 group text-center md:text-left">
                                 <div className="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-growaz-orange group-hover:bg-growaz-orange group-hover:text-white transition-all shadow-xl shadow-growaz-orange/10 shrink-0">
                                     <Mail size={20} md:size={24} />
                                 </div>
                                 <div className="space-y-1">
                                     <p className="text-white/20 text-[9px] font-bold uppercase tracking-widest">Email Us</p>
-                                    <a href="mailto:labsrebound@gmail.com" className="text-lg md:text-xl font-heading font-black hover:text-growaz-orange transition-colors break-all">labsrebound@gmail.com</a>
+                                    <a itemProp="email" href="mailto:labsrebound@gmail.com" className="text-lg md:text-xl font-heading font-black hover:text-growaz-orange transition-colors break-all">labsrebound@gmail.com</a>
                                 </div>
                             </div>
 
@@ -108,7 +111,7 @@ const Contact = () => {
                                 </div>
                                 <div className="space-y-1">
                                     <p className="text-white/20 text-[9px] font-bold uppercase tracking-widest">Call Us</p>
-                                    <a href="tel:+918129829294" className="text-lg md:text-xl font-heading font-black hover:text-growaz-yellow transition-colors">+91 81298 29294</a>
+                                    <a itemProp="telephone" href="tel:+918129829294" className="text-lg md:text-xl font-heading font-black hover:text-growaz-yellow transition-colors">+91 81298 29294</a>
                                 </div>
                             </div>
 
@@ -118,7 +121,7 @@ const Contact = () => {
                                 </div>
                                 <div className="text-center md:text-left">
                                     <p className="text-white/60 text-xs md:text-sm font-bold">Mon - Sat, 9AM - 6PM</p>
-                                    <p className="text-white/20 text-[8px] md:text-xs font-medium uppercase tracking-widest mt-1">Available Internationally</p>
+                                    <p className="text-white/20 text-[8px] md:text-xs font-medium uppercase tracking-widest mt-1">Based in Kochi, Kerala. Global Ops.</p>
                                 </div>
                             </div>
                         </div>
