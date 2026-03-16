@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import WhyUs from './components/WhyUs';
 import About from './components/About';
 import Services from './components/Services';
+import Projects from './components/Projects';
 import Process from './components/Process';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
@@ -55,6 +56,7 @@ function App() {
             <WhyUs />
             <About />
             <Services />
+            <Projects />
             <Process />
             <FAQ />
             <Contact />

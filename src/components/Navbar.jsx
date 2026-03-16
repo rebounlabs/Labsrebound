@@ -16,6 +16,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Services', href: '#services' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Process', href: '#process' },
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
@@ -26,13 +27,9 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', damping: 20, stiffness: 100 }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out ${scrolled ? 'pt-4 md:pt-6' : 'py-8'
-        }`}
+      className="fixed top-0 left-0 w-full z-50 pt-4 md:pt-6 transition-all duration-500 ease-in-out"
     >
-      <div className={`mx-auto transition-all duration-500 ease-in-out ${scrolled
-        ? 'w-[90%] md:w-max bg-bg-dark/60 backdrop-blur-2xl px-6 md:px-10 py-4 rounded-full border border-white/10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]'
-        : 'container-custom flex justify-between'
-        } flex justify-between items-center gap-10 md:gap-20`}>
+      <div className="mx-auto transition-all duration-500 ease-in-out w-[90%] md:w-max bg-bg-dark/60 backdrop-blur-2xl px-6 md:px-10 py-4 rounded-full border border-white/10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex justify-between items-center gap-10 md:gap-20">
         {/* Logo */}
         <motion.a
           href="#"

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 150" width="1200" height="300">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@900&amp;family=Playfair+Display:ital,wght@1,900&amp;display=swap');
+      
+      .text-base {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 900;
+        font-size: 80px;
+        fill: #ffffff;
+        letter-spacing: -0.05em;
+      }
+      
+      .text-italic {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        font-style: italic;
+        font-size: 80px;
+        fill: #ff6b2b;
+        letter-spacing: -0.02em;
+      }
+    </style>
+  </defs>
+  
+  <rect width="600" height="150" fill="#0a0a0a"/>
+  
+  <text x="30" y="100" class="text-base">Rebound</text>
+  
+  <!-- "Labs" text positioned after "Rebound" -->
+  <text x="365" y="100" class="text-italic">Labs</text>
+</svg>
