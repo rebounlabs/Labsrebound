@@ -22,6 +22,16 @@ const projectsData = [
         techStack: ["HTML", "CSS", "JavaScript"],
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
         link: "https://smartadvisortrans.com/"
+    },
+    {
+        id: 3,
+        title: "Casen",
+        category: "E-commerce",
+        client: "Casen",
+        description: "A modern e-commerce platform offering premium Apple mobile cases and accessories.",
+        techStack: ["React", "Tailwind CSS", "Node.js"],
+        image: "https://images.unsplash.com/photo-1601593346740-925612772716?q=80&w=2070&auto=format&fit=crop",
+        link: "https://mujthab.xyz/"
     }
 ];
 
