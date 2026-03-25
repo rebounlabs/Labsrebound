@@ -16,12 +16,12 @@ const Footer = () => {
 
                     {/* Brand Column */}
                     <div className="max-w-xs space-y-6 md:space-y-8 flex flex-col items-center md:items-start">
-                        <a href="#" className="text-3xl font-black tracking-tighter flex items-center gap-1 group">
+                        <a href="#" className="text-3xl font-black tracking-tighter flex items-center gap-1 group" aria-label="Rebound Labs Homepage">
                             <span className="text-white group-hover:text-growaz-orange transition-colors">Rebound</span>
                             <span className="text-growaz-orange">Labs</span>
                         </a>
                         <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-bold italic">
-                            Minimalism. Performance. Impact. <br className="hidden md:block" /> We build digital empires for the bold.
+                            Top web development and design agency in Kochi, Kerala. <br className="hidden md:block" /> We build high-performance digital solutions for the bold.
                         </p>
                     </div>
 

@@ -76,7 +76,7 @@ const Hero = () => {
                         variants={itemVariants}
                         className="text-zinc-300 text-base md:text-xl lg:text-2xl max-w-3xl mx-auto mb-12 md:mb-16 font-body font-normal leading-relaxed"
                     >
-                        We are the best web development company in Kerala, transforming bold ideas into high-performance, visually stunning realities for businesses in Kochi and worldwide.
+                        Experience the best web development and design services in Kerala. Rebound Labs creates high-performance, visually stunning digital solutions for businesses in Kochi and worldwide.
                     </motion.h2>
 
                     {/* CTA Group */}

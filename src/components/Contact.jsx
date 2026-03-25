@@ -91,13 +91,19 @@ const Contact = () => {
                             Looking for the best web development agency in Kerala? We'd love to hear about your project. Send us a message and our Kochi team will get back to you within 24 hours.
                         </p>
 
-                        <div className="space-y-8 md:space-y-10 mb-16 lg:mb-0" itemScope itemType="https://schema.org/LocalBusiness">
+                        <div className="space-y-8 md:space-y-10 mb-16 lg:mb-0" itemScope itemType="https://schema.org/Organization">
                             <meta itemProp="name" content="Rebound Labs" />
-                            <meta itemProp="address" content="Kochi, Kerala, India" />
+                            <meta itemProp="url" content="https://labsrebound.com/" />
+                            <meta itemProp="logo" content="https://labsrebound.com/logo.png" />
+                            <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                                <meta itemProp="addressLocality" content="Kochi" />
+                                <meta itemProp="addressRegion" content="Kerala" />
+                                <meta itemProp="addressCountry" content="IN" />
+                            </div>
 
                             <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 group text-center md:text-left">
                                 <div className="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-growaz-orange group-hover:bg-growaz-orange group-hover:text-white transition-all shadow-xl shadow-growaz-orange/10 shrink-0">
-                                    <Mail size={20} md:size={24} />
+                                    <Mail size={20} md:size={24} aria-label="Email Icon" />
                                 </div>
                                 <div className="space-y-1">
                                     <p className="text-zinc-400 text-[9px] font-bold uppercase tracking-widest">Email Us</p>
@@ -107,7 +113,7 @@ const Contact = () => {
 
                             <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 group text-center md:text-left">
                                 <div className="w-12 h-12 md:w-14 md:h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-growaz-yellow group-hover:bg-growaz-yellow group-hover:text-black transition-all shadow-xl shadow-growaz-yellow/10 shrink-0">
-                                    <Phone size={20} md:size={24} />
+                                    <Phone size={20} md:size={24} aria-label="Phone Icon" />
                                 </div>
                                 <div className="space-y-1">
                                     <p className="text-zinc-400 text-[9px] font-bold uppercase tracking-widest">Call Us</p>
@@ -134,37 +140,42 @@ const Contact = () => {
                         viewport={{ once: true }}
                         className="relative lg:pl-12"
                     >
-                        <form onSubmit={handleSubmit} className="space-y-12 md:space-y-16">
+                        <form onSubmit={handleSubmit} className="space-y-12 md:space-y-16" aria-label="Contact Request Form">
                             <div className="space-y-4">
-                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-growaz-orange">01. What's your name?</label>
+                                <label htmlFor="name-input" className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-growaz-orange">01. What's your name?</label>
                                 <input
+                                    id="name-input"
                                     type="text"
                                     name="name"
                                     value={formState.name}
                                     onChange={handleChange}
                                     required
-                                    placeholder="John Doe *"
+                                    aria-required="true"
+                                    placeholder="John Doe (Web Project Inquiry) *"
                                     className="w-full bg-transparent border-b-2 border-white/10 py-4 md:py-6 text-white text-2xl md:text-4xl font-heading font-black placeholder-white/10 focus:outline-none focus:border-growaz-orange transition-colors rounded-none"
                                 />
                             </div>
 
                             <div className="space-y-4">
-                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-growaz-yellow">02. Your Email Address?</label>
+                                <label htmlFor="email-input" className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-growaz-yellow">02. Your Email Address?</label>
                                 <input
+                                    id="email-input"
                                     type="email"
                                     name="email"
                                     value={formState.email}
                                     onChange={handleChange}
                                     required
+                                    aria-required="true"
                                     placeholder="john@example.com *"
                                     className="w-full bg-transparent border-b-2 border-white/10 py-4 md:py-6 text-white text-2xl md:text-4xl font-heading font-black placeholder-white/10 focus:outline-none focus:border-growaz-yellow transition-colors rounded-none"
                                 />
                             </div>
 
                             <div className="space-y-4">
-                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-growaz-orange">03. What are you looking for?</label>
+                                <label htmlFor="service-select" className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-growaz-orange">03. What are you looking for?</label>
                                 <div className="relative">
                                     <select
+                                        id="service-select"
                                         name="service"
                                         value={formState.service}
                                         onChange={handleChange}
@@ -182,14 +193,16 @@ const Contact = () => {
                             </div>
 
                             <div className="space-y-4">
-                                <label className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-zinc-300">04. Tell us about your project</label>
+                                <label htmlFor="message-input" className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-zinc-300">04. Tell us about your project</label>
                                 <textarea
+                                    id="message-input"
                                     name="message"
                                     value={formState.message}
                                     onChange={handleChange}
                                     required
+                                    aria-required="true"
                                     rows="1"
-                                    placeholder="Project details... *"
+                                    placeholder="Tell us about your web development goals in Kerala... *"
                                     className="w-full bg-transparent border-b-2 border-white/10 py-4 md:py-6 text-white text-2xl md:text-4xl font-heading font-black placeholder-white/10 focus:outline-none focus:border-white transition-colors resize-y min-h-[100px] rounded-none"
                                 />
                             </div>

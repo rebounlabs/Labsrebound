@@ -8,7 +8,7 @@ const projectsData = [
         title: "Evently",
         category: "Web App",
         client: "Evently",
-        description: "A comprehensive event management and booking platform built for seamless user experiences.",
+        description: "A comprehensive event management and booking platform built for seamless user experiences. Engineered with high-performance React architecture.",
         techStack: ["React", "Node.js", "Tailwind"],
         image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop",
         link: "http://51.20.142.127:3000/foryou"
@@ -18,7 +18,7 @@ const projectsData = [
         title: "Smart Advisor Trans",
         category: "Website",
         client: "Smart Advisor",
-        description: "A professional corporate website delivering specialized consultancy and advisory services.",
+        description: "A professional corporate website delivering specialized consultancy and advisory services. Optimized for speed and search visibility.",
         techStack: ["HTML", "CSS", "JavaScript"],
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
         link: "https://smartadvisortrans.com/"
@@ -28,7 +28,7 @@ const projectsData = [
         title: "Casen",
         category: "E-commerce",
         client: "Casen",
-        description: "A modern e-commerce platform offering premium Apple mobile cases and accessories.",
+        description: "A modern e-commerce platform offering premium Apple mobile cases and accessories. Built with custom ecommerce website development practices.",
         techStack: ["React", "Tailwind CSS", "Node.js"],
         image: "https://images.unsplash.com/photo-1601593346740-925612772716?q=80&w=2070&auto=format&fit=crop",
         link: "https://mujthab.xyz/"
@@ -135,6 +135,7 @@ const Projects = () => {
                                     <motion.img
                                         src={project.image}
                                         alt={project.title}
+                                        loading="lazy"
                                         className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
                                     />
                                     
