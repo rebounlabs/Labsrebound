@@ -5,29 +5,29 @@ import { Plus, Code, Layout, Globe, Smartphone, CircleDashed } from 'lucide-reac
 const serviceList = [
     {
         number: "01",
-        icon: <Code size={30} />,
-        title: "Web Development in Kerala",
+        icon: <Code size={30} aria-label="Web Development Icon" />,
+        title: "Custom Web Development Kerala",
         tags: ["React & Vite", "Next.js", "Blazing Fast", "SEO architecture"],
         color: "from-blue-500 to-cyan-400"
     },
     {
         number: "02",
-        icon: <Layout size={30} />,
-        title: "UI/UX Design Strategy",
+        icon: <Layout size={30} aria-label="UI/UX Design Icon" />,
+        title: "Modern UI/UX Design Kochi",
         tags: ["High-Fidelity", "Wireframing", "User Experience", "Interactive Prototypes"],
         color: "from-growaz-orange to-growaz-yellow"
     },
     {
         number: "03",
-        icon: <Globe size={30} />,
-        title: "Enterprise Web Apps",
+        icon: <Globe size={30} aria-label="Enterprise Solutions Icon" />,
+        title: "Enterprise Web Applications",
         tags: ["Dashboards", "SaaS Solutions", "Scalable backend", "Data Visualization"],
         color: "from-purple-500 to-pink-500"
     },
     {
         number: "04",
-        icon: <Smartphone size={30} />,
-        title: "API & Mobile Strategy",
+        icon: <Smartphone size={30} aria-label="Mobile Strategy Icon" />,
+        title: "API & Mobile App Strategy",
         tags: ["REST APIs", "Integration", "PWA", "Cross-Platform"],
         color: "from-green-400 to-emerald-600"
     }
@@ -122,6 +122,15 @@ const Services = () => {
                         />
                     );
                 })}
+            </div>
+
+            {/* Internal Link to Projects */}
+            <div className="text-center pb-24">
+                <p className="text-zinc-500 text-sm md:text-base mb-8">Want to see these services in action?</p>
+                <a href="#projects" className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/10 hover:border-growaz-orange hover:text-growaz-orange transition-all duration-300 font-bold uppercase tracking-widest text-xs">
+                    View Our Portfolio
+                    <Plus size={16} />
+                </a>
             </div>
         </section>
     );
