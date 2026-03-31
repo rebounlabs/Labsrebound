@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Twitter, Linkedin, Instagram, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     const scrollToTop = () => {
@@ -16,10 +17,10 @@ const Footer = () => {
 
                     {/* Brand Column */}
                     <div className="max-w-xs space-y-6 md:space-y-8 flex flex-col items-center md:items-start">
-                        <a href="#" className="text-3xl font-black tracking-tighter flex items-center gap-1 group" aria-label="Rebound Labs Homepage">
+                        <Link to="/" className="text-3xl font-black tracking-tighter flex items-center gap-1 group" aria-label="Rebound Labs Homepage">
                             <span className="text-white group-hover:text-growaz-orange transition-colors">Rebound</span>
                             <span className="text-growaz-orange">Labs</span>
-                        </a>
+                        </Link>
                         <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-bold italic">
                             Top web development and design agency in Kochi, Kerala. <br className="hidden md:block" /> We build high-performance digital solutions for the bold.
                         </p>
@@ -30,9 +31,17 @@ const Footer = () => {
                         <div className="space-y-6">
                             <h4 className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-zinc-400">Navigation</h4>
                             <ul className="space-y-4">
-                                {['Services', 'About', 'Process', 'Contact'].map((item) => (
+                                {['Services', 'About', 'Process', 'Contact', 'Blogs'].map((item) => (
                                     <li key={item}>
-                                        <a href={`#${item.toLowerCase()}`} className="text-[11px] md:text-sm font-bold text-zinc-300 hover:text-growaz-orange transition-colors uppercase tracking-widest">{item}</a>
+                                        {item === 'Blogs' ? (
+                                            <Link to="/blogs" className="text-[11px] md:text-sm font-bold text-zinc-300 hover:text-growaz-orange transition-colors uppercase tracking-widest">
+                                                {item}
+                                            </Link>
+                                        ) : (
+                                            <Link to={{ pathname: '/', hash: `#${item.toLowerCase()}` }} className="text-[11px] md:text-sm font-bold text-zinc-300 hover:text-growaz-orange transition-colors uppercase tracking-widest">
+                                                {item}
+                                            </Link>
+                                        )}
                                     </li>
                                 ))}
                             </ul>

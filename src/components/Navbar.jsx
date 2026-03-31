@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,13 +16,19 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname, location.hash]);
+
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Process', href: '#process' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Services', hash: '#services' },
+    { name: 'Projects', hash: '#projects' },
+    { name: 'Process', hash: '#process' },
+    { name: 'About', hash: '#about' },
+    { name: 'Contact', hash: '#contact' },
   ];
+
+  const isBlogsPage = location.pathname === '/blogs';
 
   return (
     <motion.nav
@@ -31,37 +39,42 @@ const Navbar = () => {
     >
       <div className="mx-auto transition-all duration-500 ease-in-out w-[90%] md:w-max bg-bg-dark/60 backdrop-blur-2xl px-6 md:px-10 py-4 rounded-full border border-white/10 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex justify-between items-center gap-10 md:gap-20">
         {/* Logo */}
-        <motion.a
-          href="#"
+        <Link
+          to="/"
           className="text-xl md:text-2xl font-bold font-heading tracking-tighter flex items-center gap-1 group"
         >
           <span className="text-white group-hover:text-growaz-orange transition-colors duration-300">Rebound</span>
           <span className="text-growaz-orange">Labs</span>
-        </motion.a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-12">
           <div className="flex items-center space-x-8">
-            {navLinks.map((link, index) => (
-              <motion.a
+            {navLinks.map((link) => (
+              <Link
                 key={link.name}
-                href={link.href}
+                to={{ pathname: '/', hash: link.hash }}
                 className="relative text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-300 hover:text-white transition-colors py-2 overflow-hidden group"
               >
                 <span className="relative z-10">{link.name}</span>
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-growaz-orange to-growaz-yellow scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-              </motion.a>
+              </Link>
             ))}
+            <Link
+              to="/blogs"
+              className={`relative text-[11px] font-bold uppercase tracking-[0.2em] transition-colors py-2 overflow-hidden group ${isBlogsPage ? 'text-white' : 'text-zinc-300 hover:text-white'}`}
+            >
+              <span className="relative z-10">Blogs</span>
+              <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-growaz-orange to-growaz-yellow scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+            </Link>
           </div>
 
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Link
+            to={{ pathname: '/', hash: '#contact' }}
             className="bg-white text-black px-8 py-3 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-gradient-to-r hover:from-growaz-orange hover:to-growaz-yellow hover:text-black transition-all shadow-xl shadow-white/5"
           >
             Get a Quote
-          </motion.a>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -103,31 +116,32 @@ const Navbar = () => {
             </div>
 
             <div className="flex flex-col items-center space-y-8 w-full">
-              {navLinks.map((link, index) => (
-                <motion.a
+              {navLinks.map((link) => (
+                <Link
                   key={link.name}
-                  href={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 * index + 0.2 }}
+                  to={{ pathname: '/', hash: link.hash }}
                   className="text-4xl md:text-5xl font-heading font-black text-white hover:text-growaz-orange transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
-                </motion.a>
+                </Link>
               ))}
+              <Link
+                to="/blogs"
+                className="text-4xl md:text-5xl font-heading font-black text-white hover:text-growaz-orange transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Blogs
+              </Link>
             </div>
 
-            <motion.a
-              href="#contact"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+            <Link
+              to={{ pathname: '/', hash: '#contact' }}
               className="w-full max-w-xs bg-white text-black text-center py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs shadow-2xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               Start Your Project
-            </motion.a>
+            </Link>
 
             {/* Footer markers in menu */}
             <div className="absolute bottom-10 flex gap-6 text-zinc-400 text-[10px] font-black uppercase tracking-widest">
