@@ -5,6 +5,16 @@ import { ExternalLink, ArrowRight } from 'lucide-react';
 const projectsData = [
     {
         id: 1,
+        title: "Showcase Web",
+        category: "Website",
+        client: "Showcase",
+        description: "A modern showcase website with bold layouts, polished interactions, and responsive performance-focused implementation.",
+        techStack: ["React", "Vercel", "Tailwind CSS"],
+        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2070&auto=format&fit=crop",
+        link: "https://showcase-web-1.vercel.app/"
+    },
+    {
+        id: 2,
         title: "Evently",
         category: "Web App",
         client: "Evently",
@@ -14,7 +24,7 @@ const projectsData = [
         link: "http://51.20.142.127:3000/foryou"
     },
     {
-        id: 2,
+        id: 3,
         title: "Smart Advisor Trans",
         category: "Website",
         client: "Smart Advisor",
@@ -24,7 +34,7 @@ const projectsData = [
         link: "https://smartadvisortrans.com/"
     },
     {
-        id: 3,
+        id: 4,
         title: "Casen",
         category: "E-commerce",
         client: "Casen",
