@@ -5,12 +5,12 @@ import { ExternalLink, ArrowRight } from 'lucide-react';
 const projectsData = [
     {
         id: 1,
-        title: "Showcase Web",
+        title: "Restaurant Website",
         category: "Website",
-        client: "Showcase",
-        description: "A modern showcase website with bold layouts, polished interactions, and responsive performance-focused implementation.",
-        techStack: ["React", "Vercel", "Tailwind CSS"],
-        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2070&auto=format&fit=crop",
+        client: "Restaurant Brand",
+        description: "A modern restaurant website with menu highlights, table-booking flow, and mobile-first pages for fast browsing and customer conversions.",
+        techStack: ["React", "Tailwind CSS", "Vercel"],
+        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop",
         link: "https://showcase-web-1.vercel.app/"
     },
     {
