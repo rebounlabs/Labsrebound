@@ -136,7 +136,7 @@ const ShowcaseHome = () => {
       <div className="pointer-events-none absolute -right-24 top-[38rem] h-64 w-64 rounded-full bg-growaz-orange/25 blur-[120px]" />
       <div className="pointer-events-none absolute left-1/2 top-[76rem] h-72 w-72 -translate-x-1/2 rounded-full bg-growaz-yellow/10 blur-[130px]" />
 
-      <div className="relative mx-auto w-full max-w-5xl px-4 pb-14 pt-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 pt-4 sm:px-6 lg:px-10">
         <motion.header
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -178,7 +178,7 @@ const ShowcaseHome = () => {
           </div>
         </motion.header>
 
-        <section id="home" className="border-b border-white/5 pb-14 pt-20 sm:pt-24">
+        <section id="home" className="border-b border-white/5 pb-16 pt-20 sm:pt-24">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -194,13 +194,13 @@ const ShowcaseHome = () => {
               <img src={logoIcon} alt="Rebound Labs" className="h-10 w-10 rounded-full border border-white/20 object-cover" />
             </div>
 
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white sm:text-6xl">
+            <h1 className="text-5xl font-semibold leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
               Crafting Premium
               <br />
               Digital Experiences.
             </h1>
 
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-zinc-400">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
               Experience the best web development and design services in Kerala. Rebound Labs creates high-performance,
               visually stunning digital solutions for businesses in Kochi and worldwide.
             </p>
@@ -208,14 +208,14 @@ const ShowcaseHome = () => {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-full bg-growaz-orange px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-orange-500"
+                className="inline-flex items-center gap-2 rounded-full bg-growaz-orange px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-white transition hover:bg-orange-500"
               >
                 Explore Our Work
                 <ArrowRight size={14} />
               </a>
               <a
                 href="#contact"
-                className="rounded-full border border-white/15 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-200 transition hover:border-growaz-orange/60 hover:text-white"
+                className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-zinc-200 transition hover:border-growaz-orange/60 hover:text-white"
               >
                 Get a Quote
               </a>
@@ -223,7 +223,7 @@ const ShowcaseHome = () => {
           </motion.div>
         </section>
 
-        <section id="services" className="border-b border-white/5 py-12">
+        <section id="services" className="border-b border-white/5 py-16">
           <div className="grid gap-4 md:grid-cols-3">
             {serviceCards.map((card, index) => {
               const Icon = card.icon;
@@ -234,25 +234,25 @@ const ShowcaseHome = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.08 }}
-                  className="rounded-2xl border border-white/10 bg-bg-card/90 p-5"
+                  className="rounded-2xl border border-white/10 bg-bg-card/90 p-7"
                 >
                   <div className="mb-4 inline-flex rounded-xl border border-growaz-orange/40 bg-black/30 p-2.5 text-growaz-orange">
                     <Icon size={18} />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-zinc-400">{card.description}</p>
+                  <h3 className="text-xl font-semibold text-white">{card.title}</h3>
+                  <p className="mt-3 text-base leading-relaxed text-zinc-400">{card.description}</p>
                 </motion.article>
               );
             })}
           </div>
 
           <div id="about" className="mt-12 grid gap-6 border-t border-white/5 pt-10 md:grid-cols-2">
-            <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">
+            <h2 className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
               Driven by passion,
               <br />
               defined by quality.
             </h2>
-            <p className="text-sm leading-relaxed text-zinc-400">
+            <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
               Rebound Labs was not built in a boardroom. It was born from a shared obsession with perfect code and
               pixel-perfect design. We craft bespoke, high-speed web experiences that actively drive business goals
               forward in Kochi and beyond.
@@ -260,23 +260,23 @@ const ShowcaseHome = () => {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <span className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-zinc-300">
+            <span className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-xs uppercase tracking-[0.2em] text-zinc-300">
               100% Satisfaction
             </span>
-            <span className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-zinc-300">
+            <span className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-xs uppercase tracking-[0.2em] text-zinc-300">
               3X Faster Results
             </span>
-            <span className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-zinc-300">
+            <span className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-xs uppercase tracking-[0.2em] text-zinc-300">
               50+ Clients Worldwide
             </span>
           </div>
         </section>
 
-        <section id="projects" className="border-b border-white/5 py-12">
+        <section id="projects" className="border-b border-white/5 py-16">
           <div className="mb-7 flex items-end justify-between gap-4">
             <div>
               <p className="text-[10px] uppercase tracking-[0.28em] text-zinc-500">Our Portfolio</p>
-              <h2 className="mt-2 text-2xl font-semibold text-white sm:text-3xl">Selected projects</h2>
+              <h2 className="mt-2 text-3xl font-semibold text-white sm:text-4xl">Selected projects</h2>
             </div>
           </div>
 
@@ -290,7 +290,7 @@ const ShowcaseHome = () => {
                 transition={{ duration: 0.35, delay: index * 0.04 }}
                 className="overflow-hidden rounded-2xl border border-white/10 bg-bg-card/90"
               >
-                <div className="h-44 overflow-hidden sm:h-48">
+                <div className="h-56 overflow-hidden sm:h-60">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -300,8 +300,8 @@ const ShowcaseHome = () => {
                 </div>
                 <div className="flex items-center justify-between gap-3 p-4">
                   <div>
-                    <h3 className="text-sm font-semibold text-white sm:text-base">{project.title}</h3>
-                    <p className="mt-1 text-xs uppercase tracking-[0.16em] text-zinc-500">
+                    <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                    <p className="mt-1 text-sm uppercase tracking-[0.16em] text-zinc-500">
                       {project.type} | {project.client}
                     </p>
                   </div>
@@ -309,7 +309,7 @@ const ShowcaseHome = () => {
                     href={project.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-growaz-orange px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white transition hover:bg-orange-500"
+                    className="rounded-full bg-growaz-orange px-3 py-1.5 text-xs uppercase tracking-[0.2em] text-white transition hover:bg-orange-500"
                   >
                     Visit
                   </a>
@@ -319,8 +319,8 @@ const ShowcaseHome = () => {
           </div>
         </section>
 
-        <section id="feedback" className="border-b border-white/5 py-12">
-          <h2 className="mb-7 text-center text-2xl font-semibold text-white sm:text-3xl">Why clients choose us</h2>
+        <section id="feedback" className="border-b border-white/5 py-16">
+          <h2 className="mb-7 text-center text-3xl font-semibold text-white sm:text-4xl">Why clients choose us</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {whyReboundCards.map((item, index) => (
               <motion.article
@@ -331,19 +331,19 @@ const ShowcaseHome = () => {
                 transition={{ duration: 0.35, delay: index * 0.06 }}
                 className="rounded-2xl border border-white/10 bg-bg-card/90 p-5"
               >
-                <p className="text-lg font-semibold text-white">{item.title}</p>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-300">{item.description}</p>
+                <p className="text-xl font-semibold text-white">{item.title}</p>
+                <p className="mt-3 text-base leading-relaxed text-zinc-300">{item.description}</p>
               </motion.article>
             ))}
           </div>
         </section>
 
-        <section id="faq" className="border-b border-white/5 py-12">
+        <section id="faq" className="border-b border-white/5 py-16">
           <div className="grid gap-8 md:grid-cols-2">
             <div>
               <p className="text-[10px] uppercase tracking-[0.28em] text-zinc-500">Common queries</p>
-              <h2 className="mt-3 text-3xl font-semibold text-white">Curious mind?</h2>
-              <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">
+              <h2 className="mt-3 text-4xl font-semibold text-white">Curious mind?</h2>
+              <p className="mt-4 max-w-sm text-base leading-relaxed text-zinc-400">
                 Transparent communication from discovery to launch. Here are the questions we get most from new
                 clients.
               </p>
@@ -360,10 +360,10 @@ const ShowcaseHome = () => {
                     className="w-full rounded-xl border border-white/10 bg-bg-card/80 px-4 py-3 text-left"
                   >
                     <span className="flex items-center justify-between gap-3">
-                      <span className="text-sm text-zinc-200">{faq.question}</span>
+                      <span className="text-base text-zinc-200">{faq.question}</span>
                       {isOpen ? <Minus size={16} className="text-growaz-orange" /> : <Plus size={16} className="text-zinc-400" />}
                     </span>
-                    {isOpen && <p className="mt-3 text-sm leading-relaxed text-zinc-400">{faq.answer}</p>}
+                    {isOpen && <p className="mt-3 text-base leading-relaxed text-zinc-400">{faq.answer}</p>}
                   </button>
                 );
               })}
@@ -371,7 +371,7 @@ const ShowcaseHome = () => {
           </div>
         </section>
 
-        <section id="contact" className="py-12">
+        <section id="contact" className="py-16">
           <div className="grid gap-6 md:grid-cols-2">
             <form
               action="https://formspree.io/f/meejylwj"
@@ -383,21 +383,21 @@ const ShowcaseHome = () => {
                   name="name"
                   type="text"
                   placeholder="John Doe"
-                  className="w-full rounded-lg border border-white/10 bg-black/35 px-3 py-2.5 text-sm text-white outline-none placeholder:text-zinc-500 focus:border-growaz-orange/50"
+                  className="w-full rounded-lg border border-white/10 bg-black/35 px-3 py-2.5 text-base text-white outline-none placeholder:text-zinc-500 focus:border-growaz-orange/50"
                   required
                 />
                 <input
                   name="email"
                   type="email"
                   placeholder="john@example.com"
-                  className="w-full rounded-lg border border-white/10 bg-black/35 px-3 py-2.5 text-sm text-white outline-none placeholder:text-zinc-500 focus:border-growaz-orange/50"
+                  className="w-full rounded-lg border border-white/10 bg-black/35 px-3 py-2.5 text-base text-white outline-none placeholder:text-zinc-500 focus:border-growaz-orange/50"
                   required
                 />
                 <textarea
                   name="message"
                   rows={4}
                   placeholder="Tell us about your project"
-                  className="w-full rounded-lg border border-white/10 bg-black/35 px-3 py-2.5 text-sm text-white outline-none placeholder:text-zinc-500 focus:border-growaz-orange/50"
+                  className="w-full rounded-lg border border-white/10 bg-black/35 px-3 py-2.5 text-base text-white outline-none placeholder:text-zinc-500 focus:border-growaz-orange/50"
                   required
                 />
               </div>
@@ -412,16 +412,16 @@ const ShowcaseHome = () => {
 
             <div className="rounded-2xl border border-white/10 bg-bg-card/90 p-6">
               <p className="text-[10px] uppercase tracking-[0.28em] text-zinc-500">Get in touch</p>
-              <h2 className="mt-3 max-w-sm text-3xl font-semibold leading-tight text-white">
+              <h2 className="mt-3 max-w-sm text-4xl font-semibold leading-tight text-white">
                 Ready to build
                 <br />
                 together?
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+              <p className="mt-3 text-base leading-relaxed text-zinc-400">
                 Looking for the best web development agency in Kerala? We will get back to you within 24 hours.
               </p>
 
-              <div className="mt-5 space-y-2 text-sm text-zinc-300">
+              <div className="mt-5 space-y-2 text-base text-zinc-300">
                 <p>labsrebound@gmail.com</p>
                 <p>+91 81298 29294</p>
                 <p>Mon - Sat, 9AM - 6PM</p>
