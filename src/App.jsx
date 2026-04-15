@@ -1,35 +1,16 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import Lenis from 'lenis';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import WhyUs from './components/WhyUs';
-import About from './components/About';
-import Services from './components/Services';
-import Projects from './components/Projects';
-import Process from './components/Process';
-import FAQ from './components/FAQ';
-import Contact from './components/Contact';
 import Blogs from './components/Blogs';
 import Footer from './components/Footer';
 import WhatsAppWidget from './components/WhatsAppWidget';
 import Loader from './components/Loader';
+import ShowcaseHome from './components/ShowcaseHome';
 import './styles/App.css';
 
 const HomePage = () => {
-  return (
-    <>
-      <Hero />
-      <WhyUs />
-      <About />
-      <Services />
-      <Projects />
-      <Process />
-      <FAQ />
-      <Contact />
-    </>
-  );
+  return <ShowcaseHome />;
 };
 
 function App() {
@@ -37,20 +18,6 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    // Initialize Lenis
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
     // Simulate initial loading
     const timer = setTimeout(() => {
       setLoading(false);
@@ -58,7 +25,6 @@ function App() {
 
     return () => {
       clearTimeout(timer);
-      lenis.destroy();
     };
   }, []);
 
@@ -80,14 +46,21 @@ function App() {
         {loading ? (
           <Loader key="loader" />
         ) : (
-          <main>
-            <Navbar />
+          <main className="min-h-screen">
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/blogs" element={<Blogs />} />
+              <Route
+                path="/blogs"
+                element={
+                  <>
+                    <Navbar />
+                    <Blogs />
+                    <Footer />
+                  </>
+                }
+              />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
-            <Footer />
             <WhatsAppWidget />
           </main>
         )}
